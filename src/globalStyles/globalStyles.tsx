@@ -18,6 +18,7 @@ export const GlobalStyles = createGlobalStyle`
     --text: ${defaultTheme['--text']};
     --subtext: ${defaultTheme['--subtext']};
     --duo: ${defaultTheme['--duo']};
+    font-family: "Bitter", serif;
   }
     body{
     min-height: calc(-40px + 100vh);

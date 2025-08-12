@@ -1,19 +1,23 @@
 import React from 'react';
 import type { LandingProps } from './Landing.interfaces';
 import {
-  LandingContainer,
-  ContentWrapper,
   TextSection,
   ImageSection,
   ProfileImage,
   DiagonalLines,
+  ScrollSection,
+  ScrollText,
+  BouncingLetter,
 } from "./LandingComponents";
+import { Container, ContentWrapper } from '@components/Common/CommonComponents';
 import meImage from '@assets/me.png';
 
 const Landing: React.FC<LandingProps> = () => {
+  const scrollText = "SCROLL";
+
   return (
-    <LandingContainer>
-      <ContentWrapper>
+    <Container>
+      <ContentWrapper flexDirection="row">
         <TextSection>
           <p>
             Hi, my <br />name is <b>Yash </b>.
@@ -27,7 +31,17 @@ const Landing: React.FC<LandingProps> = () => {
           <DiagonalLines />
         </ImageSection>
       </ContentWrapper>
-    </LandingContainer>
+      
+      <ScrollSection>
+        <ScrollText>
+          {scrollText.split('').map((letter, index) => (
+            <BouncingLetter key={index} delay={index * 0.1}>
+              {letter}
+            </BouncingLetter>
+          ))}
+        </ScrollText>
+      </ScrollSection>
+    </Container>
   );
 };
 

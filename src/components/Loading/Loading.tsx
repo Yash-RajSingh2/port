@@ -1,9 +1,10 @@
 import React from 'react';
 import { useAppSelector } from '@context/reducer/store';
+import type { RootState } from '@context/reducer/store';
 import { LoadingContainer } from './LoadingComponents';
 
 const Loading: React.FC = () => {
-  const { isLoading, isMenuOpen } = useAppSelector((state) => state.app);
+  const { isLoading, isMenuOpen } = useAppSelector((state: RootState) => state.app);
   const shouldShow = isLoading || isMenuOpen;
 
   return (

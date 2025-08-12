@@ -1,21 +1,6 @@
 import styled from 'styled-components';
 
-export const LandingContainer = styled.div`
-  width: 100%;
-  min-height: 90vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0 2rem 2rem;
-`;
 
-export const ContentWrapper = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 4rem;
-  max-width: 1200px;
-  width: 100%;
-`;
 
 export const TextSection = styled.div`
   font-family: Bitter;
@@ -89,6 +74,51 @@ export const ProfileImage = styled.img`
     }
   }
 `; 
+
+export const ScrollSection = styled.div`
+  align-self: flex-start;
+  display: flex;
+  margin: 2rem 0 0 10%;
+  opacity: 0;
+  animation: fadeSlideUp 0.8s ease-out 2s forwards;
+  &::after {
+    content: "";
+    transform-origin: bottom center;
+    position: absolute;
+    left: 25px;
+    width: 1px;
+    height: 30vh;
+    top: calc(100% + 25px);
+    background: var(--text);
+    opacity: 0.45;
+  }
+`;
+
+export const ScrollText = styled.div`
+  font-family: Bitter;
+  font-size: 12px;
+  color: #919795;
+  letter-spacing: 0.2rem;
+  text-transform: uppercase;
+  display: flex;
+  gap: 0.1rem;
+`;
+
+export const BouncingLetter = styled.span<{ delay: number }>`
+  display: inline-block;
+  animation: letterBounce 0.7s ease-in-out ${(props) => props.delay}s;
+  animation-fill-mode: both;
+  animation-iteration-count: 5;
+  @keyframes letterBounce {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-8px);
+    }
+  }
+`;
 
 export const DiagonalLines: React.FC = () => {
   return (
