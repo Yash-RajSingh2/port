@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { keyframes, css } from 'styled-components';
 import React from 'react';
 
 export const ContactContainer = styled.section`
@@ -13,15 +13,23 @@ export const ContactContainer = styled.section`
   position: relative;
 `;
 
+const borderGrow = keyframes`
+  0% {
+    opacity: 0;
+    transform: translateX(100%) scaleX(0);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0%) scaleX(1);
+  }
+`;
+
 export const ContactTitle = styled.h2`
   font-family: Bitter;
   font-size: 48px;
   color: var(--text);
   margin: 0;
   position: relative;
-  opacity: 0;
-  transform: translateY(30px);
-  animation: fadeSlideUp 0.8s ease-out forwards;
   
   &::after {
     content: '';
@@ -33,31 +41,7 @@ export const ContactTitle = styled.h2`
     height: 3px;
     background: var(--subtext);
     opacity: 0;
-    animation: borderGrow 0.6s ease-out 0.4s forwards;
     transform-origin: center;
-    animation-delay: 1s;
-  }
-
-  @keyframes fadeSlideUp {
-    0% {
-      opacity: 0;
-      transform: translateY(30px);
-    }
-    100% {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  @keyframes borderGrow {
-    0% {
-      opacity: 0;
-      transform: translateX(100%) scaleX(0);
-    }
-    100% {
-      opacity: 1;
-      transform: translateX(0%) scaleX(1);
-    }
   }
 `;
 
@@ -69,9 +53,6 @@ export const ContactDescription = styled.p`
   margin: 0;
   max-width: 600px;
   text-align: left;
-  opacity: 0;
-  transform: translateY(30px);
-  animation: fadeSlideUp 0.8s ease-out 0.6s forwards;
 `;
 
 export const ContactButton = styled.button`
@@ -86,19 +67,49 @@ export const ContactButton = styled.button`
   font-size: 1rem;
   transition: all 0.3s ease;
   font-weight: 700;
-  opacity: 0;
-  transform: translateY(30px);
-  animation: fadeSlideUp 0.8s ease-out 0.8s forwards;
-  
+
   &:hover {
     background: var(--fill);
-    color: var(--bg);
+    color: var(--line);
   }
 
   &:focus {
     outline: none;
     box-shadow: 0 0 0 2px var(--fill);
   }
+`;
+
+// Animated versions for intersection observer
+export const AnimatedContactContainer = styled(ContactContainer)<{ isVisible?: boolean }>`
+  opacity: ${props => props.isVisible ? 1 : 0};
+  transform: translateY(${props => props.isVisible ? '0' : '40px'});
+  transition: opacity 0.8s ease, transform 0.8s ease;
+`;
+
+export const AnimatedContactTitle = styled(ContactTitle)<{ isVisible?: boolean; delay?: number }>`
+  opacity: ${props => props.isVisible ? 1 : 0};
+  transform: translateY(${props => props.isVisible ? '0' : '30px'});
+  transition: opacity 0.6s ease ${props => props.delay || 0}s, transform 0.6s ease ${props => props.delay || 0}s;
+  
+  &::after {
+    ${props => props.isVisible ? css`
+      animation: ${borderGrow} 0.6s ease-out ${(props.delay || 0) + 0.4}s forwards;
+    ` : css`
+      animation: none;
+    `}
+  }
+`;
+
+export const AnimatedContactDescription = styled(ContactDescription)<{ isVisible?: boolean; delay?: number }>`
+  opacity: ${props => props.isVisible ? 1 : 0};
+  transform: translateY(${props => props.isVisible ? '0' : '30px'});
+  transition: opacity 0.6s ease ${props => props.delay || 0}s, transform 0.6s ease ${props => props.delay || 0}s;
+`;
+
+export const AnimatedContactButton = styled(ContactButton)<{ isVisible?: boolean; delay?: number }>`
+  opacity: ${props => props.isVisible ? 1 : 0};
+  transform: translateY(${props => props.isVisible ? '0' : '30px'});
+  transition: all 0.5s ease ${props => props.delay || 0}s;
 `;
 
 interface CirclesProps {

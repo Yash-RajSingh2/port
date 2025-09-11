@@ -3,27 +3,38 @@ import type { AwardsProps } from './Awards.interfaces';
 import Layout from '@components/Layout/Layout';
 import AwardsLanding from '@components/AwardsLanding/AwardsLanding';
 import {
-  AwardsListContainer,
+  AnimatedAwardsListContainer,
   PositionedDiagonalLines,
   AwardsCircles,
-  MoreComingMessage,
+  AnimatedMoreComingMessage,
 } from "./AwardsComponents.tsx";
 import { awards } from '@/data/awards';
 import { AwardItem } from './AwardItem';
-import { Container, ContentWrapper } from '@/components/Common/CommonComponents.tsx';
+import { Container, AnimatedContentWrapper } from '@/components/Common/CommonComponents.tsx';
+import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
 
 const Awards: React.FC<AwardsProps> = () => {
+  const { elementRef: listRef, isIntersecting: listVisible } = useIntersectionObserver({
+    threshold: 0.05,
+    rootMargin: '0px 0px -200px 0px',
+  });
+
+  const { elementRef: messageRef, isIntersecting: messageVisible } = useIntersectionObserver({
+    threshold: 0.3,
+    rootMargin: '0px 0px -100px 0px',
+  });
+
   return (
     <Layout>
       <AwardsLanding />
-      <Container style={{ padding: '0 2rem 0' }}>
-        <ContentWrapper
+      <Container style={{ padding: '0 2rem 0' }} ref={listRef}>
+        <AnimatedContentWrapper
           flexDirection="column"
           alignItems="flex-start"
           gap="2rem"
+          isVisible={listVisible}
         >
-          <AwardsListContainer>
-            {/* Decorative elements that won't cause height issues */}
+          <AnimatedAwardsListContainer isVisible={listVisible}>
             <PositionedDiagonalLines top="2%" right="5%" />
             <AwardsCircles top="15%" left="-10%" width="30%" height="10%" />
             <AwardsCircles top="38%" right="5%" width="30%" height="10%" />
@@ -38,12 +49,16 @@ const Awards: React.FC<AwardsProps> = () => {
                 index={index}
               />
             ))}
-          </AwardsListContainer>
+          </AnimatedAwardsListContainer>
           
-          <MoreComingMessage>
+          <AnimatedMoreComingMessage 
+            ref={messageRef}
+            isVisible={messageVisible}
+            delay={0.3}
+          >
             More achievements brewing in the pipeline
-          </MoreComingMessage>
-        </ContentWrapper>
+          </AnimatedMoreComingMessage>
+        </AnimatedContentWrapper>
       </Container>
     </Layout>
   );

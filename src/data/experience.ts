@@ -20,10 +20,6 @@ export const experiences: ExperienceData[] = [
       "Played an integral role in a complete UI revamp of the core product, improving usability and performance across web platforms.",
       "Led various UI/UX enhancements and bug fixes, improving user experience and interface efficiency across the application.",
       "Engineered and implemented key components, including a drag-and-drop pivot panel for tables, significantly enhancing user interaction and data manipulation capabilities.",
-      "Collaborated closely with product managers, designers, and backend developers to ensure seamless integration and high-performance application delivery.",
-      "Collaborated on building tailored products for client demos and onboarding processes.",
-      "Contributed to the creation of an application that dynamically generates new apps from JSON inputs, reducing manual effort by 70%.",
-      "Developed and delivered 18 high-impact demos under tight deadlines, effectively showcasing the application’s capabilities and value to prospective clients.",
     ],
   },
   {

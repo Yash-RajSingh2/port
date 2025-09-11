@@ -1,6 +1,6 @@
 import React from 'react';
 import type { ProjectsLandingProps } from './ProjectsLanding.interfaces';
-import { ContentWrapper } from '@components/Common/CommonComponents';
+import { AnimatedContentWrapper } from '@components/Common/CommonComponents';
 import {
   ScrollText,
   BouncingLetter,
@@ -12,14 +12,20 @@ import {
   ProjectsScrollSection,
 } from "@/routes/pages/projects/ProjectsComponents";
 import { Circles } from '@components/Contact/ContactComponents';
+import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
+
 const ProjectsLanding: React.FC<ProjectsLandingProps> = () => {
   const scrollText = "EXPLORE";
+  const { elementRef, isIntersecting } = useIntersectionObserver({
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px',
+  });
 
   return (
-    <ProjectsContainer minHeight="90vh">
-      <ContentWrapper flexDirection="column" alignItems="flex-start" gap="2rem">
+    <ProjectsContainer minHeight="90vh" ref={elementRef}>
+      <AnimatedContentWrapper flexDirection="column" alignItems="flex-start" gap="2rem" isVisible={isIntersecting}>
         <ProjectsTitle>
-          My projects<span>.</span>
+          My Projects<span>.</span>
         </ProjectsTitle>
         <Circles top="15%" left="50%" width="40%" height="50%"/>
         <ProjectsText>
@@ -30,7 +36,7 @@ const ProjectsLanding: React.FC<ProjectsLandingProps> = () => {
           challenge I've transformed into an opportunity to create something
           <b> innovative, precise, and impactful.</b>
         </ProjectsText>
-      </ContentWrapper>
+      </AnimatedContentWrapper>
       <ProjectsScrollSection>
         <ScrollText>
           {scrollText.split("").map((letter, index) => (

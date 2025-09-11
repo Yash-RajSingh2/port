@@ -140,22 +140,9 @@ export const AwardsTitle = styled(AboutTitle)`
 export const AwardsText = styled(AboutText)`
   color: var(--text);
   max-width: 800px;
-  transform: translateY(20px);
-  animation: fadeSlideUp 0.8s ease-out 0.6s forwards;
   font-size: 1.4rem;
   line-height: 1.65;
   margin-top: 60px;
-
-  @keyframes fadeSlideUp {
-    0% {
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    100% {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
 `;
 
 export const AwardsScrollSection = styled(ScrollSection)`
@@ -200,19 +187,7 @@ export const AwardsListContainer = styled.div`
 
 export const MoreComingMessage = styled(AwardsTitle)`
   margin: 6rem auto 2%;
-  animation: fadeSlideUp 0.8s ease-out 1.2s forwards;
   font-size: 2.2rem;
-
-  @keyframes fadeSlideUp {
-    0% {
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    100% {
-      opacity: 0.8;
-      transform: translateY(0);
-    }
-  }
 
   @media (max-width: 768px) {
     margin-top: 4rem;
@@ -229,38 +204,16 @@ export const AwardItemContainer = styled.div<{ $isReversed: boolean }>`
   aspect-ratio: 3/2;
   display: flex;
   flex-direction: column;
-  align-self: ${props => props.$isReversed ? 'flex-end' : 'flex-start'};
-  opacity: 0;
-  animation: ${awardItemSlideDown} 0.6s ease-out forwards;
+  align-self: ${(props) => (props.$isReversed ? "flex-end" : "flex-start")};
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   border-radius: 16px;
   border: 1px solid var(--subtext);
-  
+
   &:hover {
     transform: translateY(-10px);
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
   }
-  
-  &:nth-child(1) {
-    animation-delay: 0.2s;
-  }
-  
-  &:nth-child(2) {
-    animation-delay: 0.4s;
-  }
-  
-  &:nth-child(3) {
-    animation-delay: 0.6s;
-  }
-  
-  &:nth-child(4) {
-    animation-delay: 0.8s;
-  }
-  
-  &:nth-child(n+5) {
-    animation-delay: ${props => `${1.0 + (0.2 * ((props as any)['data-index'] || 0))}s`};
-  }
-  
+
   @media (max-width: 768px) {
     width: 90%;
     align-self: center;
@@ -287,7 +240,7 @@ export const AwardImageContainer = styled.div`
   justify-content: center;
 `;
 
-export const AwardImageLoader = styled.div<{ $isLoaded: boolean }>`
+export const AwardImageLoader = styled.div<{ $isLoaded: boolean; $shouldAnimate: boolean }>`
   position: absolute;
   top: 0;
   left: 0;
@@ -295,8 +248,8 @@ export const AwardImageLoader = styled.div<{ $isLoaded: boolean }>`
   height: 100%;
   background: var(--subtext);
   z-index: 3;
-  ${props => props.$isLoaded && css`
-    animation: ${imageLoaderSlideUp} 0.8s ease-out forwards;
+  ${props => props.$isLoaded && props.$shouldAnimate && css`
+    animation: ${imageLoaderSlideUp} 0.8s ease-out 0.5s forwards;
   `}
   transform-origin: bottom;
 `;
@@ -365,4 +318,23 @@ export const AwardDescription = styled.p`
     padding: 2.5rem 1.2rem 1.2rem;
     font-size: 1rem;
   }
+`;
+
+// Animated versions for intersection observer
+export const AnimatedAwardsListContainer = styled(AwardsListContainer)<{ isVisible?: boolean }>`
+  opacity: ${props => props.isVisible ? 1 : 0};
+  transform: translateY(${props => props.isVisible ? '0' : '30px'});
+  transition: opacity 0.4s ease, transform 0.4s ease;
+`;
+
+export const AnimatedAwardItemContainer = styled(AwardItemContainer)<{ isVisible?: boolean; delay?: number }>`
+  opacity: ${props => props.isVisible ? 1 : 0};
+  transform: translateY(${props => props.isVisible ? '0' : '60px'});
+  transition: opacity 0.6s ease ${props => props.delay || 0}s, transform 0.6s ease ${props => props.delay || 0}s;
+`;
+
+export const AnimatedMoreComingMessage = styled(MoreComingMessage)<{ isVisible?: boolean; delay?: number }>`
+  opacity: ${props => props.isVisible ? 1 : 0};
+  transform: translateY(${props => props.isVisible ? '0' : '40px'});
+  transition: opacity 0.4s ease ${props => props.delay || 0}s, transform 0.4s ease ${props => props.delay || 0}s;
 `; 

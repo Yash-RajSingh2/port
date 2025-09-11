@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { Button } from '@components/Common/CommonComponents';
 
 export const WorkImage = styled.img`
   width: 140px;
@@ -69,4 +70,28 @@ export const ExperienceCard = styled.div`
     opacity: 0.275;
     margin-top: 1rem;
   }
+`;
+
+export const SeeMoreButton = styled(Button)`
+  align-self: center;
+`;
+
+// Animated versions for intersection observer
+export const AnimatedExperienceCard = styled(ExperienceCard)<{ isVisible?: boolean; delay?: number }>`
+  opacity: ${props => props.isVisible ? 1 : 0};
+  transform: translateY(${props => props.isVisible ? '0' : '40px'});
+  transition: opacity 0.8s ease ${props => props.delay || 0}s, transform 0.8s ease ${props => props.delay || 0}s;
+`;
+
+export const AnimatedSeeMoreButton = styled(SeeMoreButton)<{ isVisible?: boolean; delay?: number }>`
+  opacity: ${props => props.isVisible ? 1 : 0};
+  transform: translateY(${props => props.isVisible ? '0' : '20px'});
+  transition: all 0.5s ease ${props => props.delay || 0}s;
+`;
+
+// Individual animated experience card for individual intersection observers
+export const IndividualAnimatedExperienceCard = styled(ExperienceCard)<{ isVisible?: boolean; delay?: number }>`
+  opacity: ${props => props.isVisible ? 1 : 0};
+  transform: translateY(${props => props.isVisible ? '0' : '40px'});
+  transition: opacity 0.6s ease ${props => props.delay || 0}s, transform 0.6s ease ${props => props.delay || 0}s;
 `;

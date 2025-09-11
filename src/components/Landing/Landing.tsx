@@ -9,15 +9,20 @@ import {
   ScrollText,
   BouncingLetter,
 } from "./LandingComponents";
-import { Container, ContentWrapper } from '@components/Common/CommonComponents';
+import { Container, AnimatedContentWrapper } from '@components/Common/CommonComponents';
+import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
 import meImage from '@assets/me.png';
 
 const Landing: React.FC<LandingProps> = () => {
   const scrollText = "SCROLL";
+  const { elementRef, isIntersecting } = useIntersectionObserver({
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px',
+  });
 
   return (
-    <Container minHeight="90vh">
-      <ContentWrapper flexDirection="row">
+    <Container minHeight="90vh" ref={elementRef}>
+      <AnimatedContentWrapper flexDirection="row" isVisible={isIntersecting}>
         <TextSection>
           <p>
             Hi, my <br />name is <b>Yash </b>.
@@ -30,7 +35,7 @@ const Landing: React.FC<LandingProps> = () => {
           <ProfileImage src={meImage} alt="Profile" />
           <DiagonalLines />
         </ImageSection>
-      </ContentWrapper>
+      </AnimatedContentWrapper>
       
       <ScrollSection>
         <ScrollText>

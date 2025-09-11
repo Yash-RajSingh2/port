@@ -22,22 +22,9 @@ export const ProjectsTitle = styled(AboutTitle)`
 export const ProjectsText = styled(AboutText)`
   color: var(--text);
   max-width: 800px;
-  transform: translateY(20px);
-  animation: fadeSlideUp 0.8s ease-out 0.6s forwards;
   font-size: 1.4rem;
   line-height: 1.65;
   margin-top: 60px;
-
-  @keyframes fadeSlideUp {
-    0% {
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    100% {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
 `;
 
 export const ProjectsScrollSection = styled(ScrollSection)`
@@ -79,30 +66,8 @@ export const ProjectItemContainer = styled.div<{ $isReversed: boolean }>`
   align-items: center;
   width: 100%;
   gap: 5%;
-  flex-direction: ${props => props.$isReversed ? 'row-reverse' : 'row'};
-  opacity: 0;
-  animation: ${projectItemSlideDown} 0.6s ease-out forwards;
-  
-  &:nth-child(1) {
-    animation-delay: 0.2s;
-  }
-  
-  &:nth-child(2) {
-    animation-delay: 0.4s;
-  }
-  
-  &:nth-child(3) {
-    animation-delay: 0.6s;
-  }
-  
-  &:nth-child(4) {
-    animation-delay: 0.8s;
-  }
-  
-  &:nth-child(n+5) {
-    animation-delay: ${props => `${1.0 + (0.2 * ((props as any)['data-index'] || 0))}s`};
-  }
-  
+  flex-direction: ${(props) => (props.$isReversed ? "row-reverse" : "row")};
+
   @media (max-width: 768px) {
     flex-direction: column;
     gap: 2rem;
@@ -114,7 +79,8 @@ export const ProjectImageSection = styled.div`
   display: flex;
   justify-content: center;
   position: relative;
-  
+  border-radius: 12px;
+
   @media (max-width: 768px) {
     width: 100%;
   }
@@ -126,9 +92,15 @@ export const ProjectImageContainer = styled.div`
   max-width: 100%;
   overflow: hidden;
   border-radius: 12px;
+  border: 2px solid var(--subtext);
+  transition: all 0.3s ease;
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  }
 `;
 
-export const ProjectImageLoader = styled.div<{ $isLoaded: boolean }>`
+export const ProjectImageLoader = styled.div<{ $isLoaded: boolean; $shouldAnimate: boolean }>`
   position: absolute;
   top: 0;
   left: 0;
@@ -136,8 +108,8 @@ export const ProjectImageLoader = styled.div<{ $isLoaded: boolean }>`
   height: 100%;
   background: var(--subtext);
   z-index: 2;
-  ${props => props.$isLoaded && css`
-    animation: ${imageLoaderSlideUp} 0.8s ease-out forwards;
+  ${props => props.$isLoaded && props.$shouldAnimate && css`
+    animation: ${imageLoaderSlideUp} 0.3s ease-out 0.1s forwards;
   `}
   transform-origin: bottom;
 `;
@@ -145,16 +117,10 @@ export const ProjectImageLoader = styled.div<{ $isLoaded: boolean }>`
 export const ProjectImage = styled.img`
   width: 100%;
   max-width: 100%;
-  aspect-ratio: 3/2;
+  aspect-ratio: 16/9;
   object-fit: center;
   border-radius: 12px;
-  border: 2px solid var(--subtext);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-
-  &:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-  }
 `;
 
 export const ProjectContentSection = styled.div`
@@ -228,4 +194,17 @@ export const ProjectLink = styled.a`
     background: var(--subtext);
     color: var(--bg);
   }
+`;
+
+// Animated versions for intersection observer
+export const AnimatedProjectItemContainer = styled(ProjectItemContainer)<{ isVisible?: boolean; delay?: number }>`
+  opacity: ${props => props.isVisible ? 1 : 0};
+  transform: translateY(${props => props.isVisible ? '0' : '40px'});
+  transition: opacity 0.6s ease ${props => props.delay || 0}s, transform 0.6s ease ${props => props.delay || 0}s;
+`;
+
+export const AnimatedProjectsListContainer = styled(ProjectsListContainer)<{ isVisible?: boolean }>`
+  opacity: ${props => props.isVisible ? 1 : 0};
+  transform: translateY(${props => props.isVisible ? '0' : '30px'});
+  transition: opacity 0.6s ease, transform 0.6s ease;
 `;

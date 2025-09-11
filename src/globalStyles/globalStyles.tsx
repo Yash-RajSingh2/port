@@ -10,6 +10,7 @@ export const GlobalStyles = createGlobalStyle<{ $lockScroll?: boolean }>`
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    scrollbar-width: none;
   }
      html{
     --bg: ${defaultTheme['--bg']};

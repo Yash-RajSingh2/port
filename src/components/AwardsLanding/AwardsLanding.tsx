@@ -1,6 +1,6 @@
 import React from 'react';
 import type { AwardsLandingProps } from './AwardsLanding.interfaces';
-import { ContentWrapper } from '@components/Common/CommonComponents';
+import { AnimatedContentWrapper } from '@components/Common/CommonComponents';
 import {
   ScrollText,
   BouncingLetter,
@@ -11,13 +11,18 @@ import {
   AwardsText,
   AwardsScrollSection,
 } from "@routes/pages/awards/AwardsComponents";
+import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
 
 const AwardsLanding: React.FC<AwardsLandingProps> = () => {
   const scrollText = "DISCOVER";
+  const { elementRef, isIntersecting } = useIntersectionObserver({
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px',
+  });
 
   return (
-    <AwardsContainer minHeight="90vh">
-      <ContentWrapper flexDirection="column" alignItems="flex-start" gap="2rem">
+    <AwardsContainer minHeight="90vh" ref={elementRef}>
+      <AnimatedContentWrapper flexDirection="column" alignItems="flex-start" gap="2rem" isVisible={isIntersecting}>
         <AwardsTitle>
           My Awards<span>.</span>
         </AwardsTitle>
@@ -28,7 +33,7 @@ const AwardsLanding: React.FC<AwardsLandingProps> = () => {
           <b> hard work, creativity, and the pursuit of impactful solutions</b> that
           make a difference in the tech community.
         </AwardsText>
-      </ContentWrapper>
+      </AnimatedContentWrapper>
       <AwardsScrollSection>
         <ScrollText>
           {scrollText.split("").map((letter, index) => (

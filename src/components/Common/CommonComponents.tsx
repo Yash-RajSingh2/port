@@ -21,11 +21,11 @@ export const ContentWrapper = styled.div<{ flexDirection?: 'row' | 'column', ali
 `;
 
 export const Button = styled.p`
-  color: var(--line);
+  color: var(--text);
   z-index: 2;
   padding: 15px 45px;
   letter-spacing: 0.1rem;
-  border: 3px solid var(--line);
+  border: 3px solid var(--subtext);
   border-radius: 8px;
   background: transparent;
   cursor: pointer;
@@ -42,4 +42,23 @@ export const Button = styled.p`
     outline: none;
     box-shadow: 0 0 0 2px var(--fill);
   }
+`;
+
+// Animated versions for intersection observer
+export const AnimatedContainer = styled(Container)<{ isVisible?: boolean }>`
+  opacity: ${props => props.isVisible ? 1 : 0};
+  transform: translateY(${props => props.isVisible ? '0' : '50px'});
+  transition: opacity 0.8s ease, transform 0.8s ease;
+`;
+
+export const AnimatedContentWrapper = styled(ContentWrapper)<{ isVisible?: boolean, delay?: number }>`
+  opacity: ${props => props.isVisible ? 1 : 0};
+  transform: translateY(${props => props.isVisible ? '0' : '30px'});
+  transition: opacity 0.6s ease ${props => props.delay || 0}s, transform 0.6s ease ${props => props.delay || 0}s;
+`;
+
+export const AnimatedButton = styled(Button)<{ isVisible?: boolean, delay?: number }>`
+  opacity: ${props => props.isVisible ? 1 : 0};
+  transform: translateY(${props => props.isVisible ? '0' : '20px'});
+  transition: all 0.5s ease ${props => props.delay || 0}s;
 `; 

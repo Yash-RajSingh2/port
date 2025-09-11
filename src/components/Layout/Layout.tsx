@@ -27,7 +27,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
     window.scrollTo({
       top: 0,
       left: 0,
-      behavior: 'smooth'
+      behavior: 'instant'
     });
   }, [location.pathname]);
 

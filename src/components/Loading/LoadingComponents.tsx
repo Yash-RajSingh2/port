@@ -15,7 +15,7 @@ export const LoadingContainer = styled.div<LoadingContainerProps>`
   height: ${({ $isVisible }) => $isVisible ? 'calc(100vh - 40px)' : '0'};
   background-color: var(--fill);
   z-index: 2000;
-  transition: height ${({ $isVisible }) => $isVisible ? '0.6s' : '0.3s'} cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transition: height ${({ $isVisible }) => $isVisible ? '0.4s' : '0.2s'} cubic-bezier(0.25, 0.46, 0.45, 0.94);
   display: flex;
   align-items: center;
   justify-content: ${({ $isLoading }) => $isLoading ? 'center' : 'flex-start'};
@@ -108,21 +108,21 @@ export const MenuItem = styled.div`
   gap: 1rem;
   align-items: end;
   opacity: 0;
-  animation: ${menuItemSlideDown} 0.6s ease-out forwards;
+  animation: ${menuItemSlideDown} 0.4s ease-out forwards;
 
   &:nth-child(2) {
-    animation-delay: 1.5s;
+    animation-delay: 1.2s;
   }
 
   &:nth-child(3) {
-    animation-delay: 1.65s;
+    animation-delay: 1.35s;
   }
 
   &:nth-child(4) {
-    animation-delay: 1.8s;
+    animation-delay: 1.5s;
   }
   &:nth-child(5) {
-    animation-delay: 1.95s;
+    animation-delay: 1.65s;
   }
 `;
 
@@ -145,8 +145,12 @@ export const MenuLink = styled(Link)`
   font-weight: 600;
   line-height: 1.25;
   width: 360px;
+  transition: all 0.2s ease;
   &:hover {
     color: var(--bg);
+    -webkit-text-stroke: 0.5px var(--text);
+    text-shadow: -0.5px -0.5px 0 var(--text), 0.5px -0.5px 0 var(--text),
+      -0.5px 0.5px 0 var(--text), 0.5px 0.5px 0 var(--text);
   }
 `;
 
@@ -197,8 +201,8 @@ export const AnimatedHeaderContainer = styled.div`
     width: 30%;
     height: 3px;
     background-color: var(--line);
-    animation: ${lineAnimation} 0.6s ease-out forwards;
-    animation-delay: 0.4s;
+    animation: ${lineAnimation} 0.4s ease-out forwards;
+    animation-delay: 0.2s;
   }
 `;
 
@@ -213,23 +217,23 @@ export const SocialIcon = styled.img`
   text-decoration: none;
   transition: all 0.2s ease;
   opacity: 0;
-  animation: ${socialIconsSlideIn} 0.6s ease-out forwards;
+  animation: ${socialIconsSlideIn} 0.4s ease-out forwards;
   cursor: pointer;
   object-fit: contain;
   &:nth-child(1) {
-    animation-delay: 1.0s;
+    animation-delay: 0.8s;
   }
 
   &:nth-child(2) {
-    animation-delay: 1.1s;
+    animation-delay: 0.9s;
   }
 
   &:nth-child(3) {
-    animation-delay: 1.2s;
+    animation-delay: 1s;
   }
 
   &:nth-child(4) {
-    animation-delay: 1.3s;
+    animation-delay: 1.1s;
   }
 `;
 
