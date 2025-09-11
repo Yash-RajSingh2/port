@@ -8,7 +8,7 @@ import { Button, Container, ContentWrapper } from "@components/Common/CommonComp
 
 const About: React.FC<AboutProps> = () => {
   return (
-    <Container>
+    <Container minHeight="80vh">
       <ContentWrapper flexDirection="column" alignItems="flex-start" gap="2rem">
         <AboutTitle>About Me</AboutTitle>
         <AboutText>

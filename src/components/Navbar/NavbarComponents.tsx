@@ -53,7 +53,11 @@ export const MenuTitle = styled.p`
   }
 `;
 
-export const NavbarContainer = styled.div`
+interface NavbarContainerProps {
+  $zIndex: number;
+}
+
+export const NavbarContainer = styled.div<NavbarContainerProps>`
   display: flex;
   flex-direction: end;
   align-items: center;
@@ -62,5 +66,5 @@ export const NavbarContainer = styled.div`
   right: 3rem;
   position: fixed;
   top: 3rem;
-  z-index: 1001;
+  z-index: ${({ $zIndex }) => $zIndex};
 `;

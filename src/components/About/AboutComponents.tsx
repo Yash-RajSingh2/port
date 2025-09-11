@@ -9,7 +9,6 @@ export const AboutTitle = styled.h2`
   opacity: 0;
   transform: translateY(30px);
   animation: fadeSlideUp 0.8s ease-out forwards;
-
   &::after {
     content: '';
     position: absolute;

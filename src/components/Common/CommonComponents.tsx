@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
-export const Container = styled.section`
+export const Container = styled.section<{ minHeight?: string }>`
   width: 100%;
-  min-height: 90vh;
+  min-height: ${props => props.minHeight || '50vh'};
   display: flex;
   flex-direction: column;
   align-items: center;

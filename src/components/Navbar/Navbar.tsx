@@ -7,15 +7,17 @@ import { setMenuOpen } from '@context/reducer/reducer';
 
 const Navbar: React.FC<NavbarProps> = () => {
   const dispatch = useAppDispatch();
-  const { isMenuOpen } = useAppSelector((state: RootState) => state.app);
+  const { isMenuOpen, isLoading } = useAppSelector(
+    (state: RootState) => state.app
+  );
 
   const handleMenuClick = () => {
     dispatch(setMenuOpen(!isMenuOpen));
   };
-
+  const computedZIndex = isLoading ? 1001 : isMenuOpen ? 3001 : 1001;
   return (
-    <NavbarContainer>
-      <MenuTitle onClick={handleMenuClick}>Menu</MenuTitle>
+    <NavbarContainer $zIndex={computedZIndex}>
+      <MenuTitle onClick={handleMenuClick}> {isMenuOpen ? 'Close' : 'Menu'}</MenuTitle>
       <TriangleLogo />
     </NavbarContainer>
   );

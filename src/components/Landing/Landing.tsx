@@ -16,7 +16,7 @@ const Landing: React.FC<LandingProps> = () => {
   const scrollText = "SCROLL";
 
   return (
-    <Container>
+    <Container minHeight="90vh">
       <ContentWrapper flexDirection="row">
         <TextSection>
           <p>

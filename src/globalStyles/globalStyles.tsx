@@ -5,7 +5,7 @@ import { themes } from "./themes";
 const defaultTheme = themes['/'];
 
 // Global styles
-export const GlobalStyles = createGlobalStyle`
+export const GlobalStyles = createGlobalStyle<{ $lockScroll?: boolean }>`
   * {
     margin: 0;
     padding: 0;
@@ -62,6 +62,13 @@ export const GlobalStyles = createGlobalStyle`
 
   body::after {
     bottom: 0;
+  }
+
+  /* Scroll locking driven by prop */
+  html, body {
+    overflow: ${({ $lockScroll }) => ($lockScroll ? 'hidden' : 'auto')};
+    overscroll-behavior: ${({ $lockScroll }) => ($lockScroll ? 'contain' : 'auto')};
+    touch-action: ${({ $lockScroll }) => ($lockScroll ? 'none' : 'auto')};
   }
 `;
 
