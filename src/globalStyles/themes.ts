@@ -23,7 +23,7 @@ export const themes = {
     '--subtext': '#F67796',
     '--duo': '#FCC5D3',
   },
-  '/contact': {
+  '/awards': {
     '--bg': '#fdfbf9',
     '--line': '#ff5708',
     '--fill': '#ffdaa5',

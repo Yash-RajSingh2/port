@@ -146,7 +146,7 @@ export const DiagonalLines: React.FC = () => {
               y="0"
               x2="0"
               y2="20"
-              stroke="#b4e3ee"
+              stroke="var(--subtext)"
               strokeWidth="4"
             />
           </pattern>

@@ -112,7 +112,7 @@ export const Circles: React.FC<CirclesProps> = ({
   top = "-8%", 
   left = "-40%", 
   width = "40%", 
-  height = "70%" 
+  height = "10%" 
 }) => {
   return (
     <div
