@@ -23,7 +23,6 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
     return () => clearTimeout(timer);
   }, [dispatch]);
 
-  // Smooth scroll to top on route change
   useEffect(() => {
     window.scrollTo({
       top: 0,
