@@ -2,6 +2,8 @@ import React from 'react';
 import { useAppDispatch, useAppSelector } from '@context/reducer/store';
 import type { RootState } from '@context/reducer/store';
 import { setMenuOpen } from '@context/reducer/reducer';
+import { socials } from '@/data/socials';
+import { menuItems } from '@/data/menuItems';
 import { 
   LoadingContainer, 
   DotsWrapper, 
@@ -34,51 +36,24 @@ const Loading: React.FC = () => {
       ) : isMenuOpen ? (
         <MenuContent>
           <AnimatedHeaderContainer>
-            <SocialIcon 
-              className="social-icon--bs" 
-              href="https://bsky.app/profile/yourusername" 
-              target="_blank" 
-              rel="noopener noreferrer"
-            >
-              Follow me on Bluesky
-            </SocialIcon>
-            <SocialIcon 
-              className="social-icon--ig" 
-              href="https://www.instagram.com/yourusername" 
-              target="_blank" 
-              rel="noopener noreferrer"
-            >
-              Follow me on Instagram
-            </SocialIcon>
-            <SocialIcon 
-              className="social-icon--gh" 
-              href="https://github.com/yourusername" 
-              target="_blank" 
-              rel="noopener noreferrer"
-            >
-              Visit my GitHub
-            </SocialIcon>
-            <SocialIcon 
-              className="social-icon--email" 
-              href="mailto:your@email.com" 
-              target="_blank" 
-              rel="noopener noreferrer"
-            >
-              Send me an Email
-            </SocialIcon>
+            {socials?.map((social, index) => (
+              <SocialIcon 
+                key={social.name+index}
+                aria-label={social.ariaLabel}
+                src={social.logo}
+                alt={social.name}
+                onClick={() => window.open(social.link, '_blank')}
+              />
+            ))}
           </AnimatedHeaderContainer>
-          <MenuItem>
-            <MenuLink to="/" onClick={handleNavigate}>Home</MenuLink>
-            <MenuDescription>Navigate to the main page</MenuDescription>
-          </MenuItem>
-          <MenuItem>
-            <MenuLink to="/about" onClick={handleNavigate}>About</MenuLink>
-            <MenuDescription>Learn more about me</MenuDescription>
-          </MenuItem>
-          <MenuItem>
-            <MenuLink to="/projects" onClick={handleNavigate}>Projects</MenuLink>
-            <MenuDescription>View my work and projects</MenuDescription>
-          </MenuItem>
+          {menuItems.map((menuItem, index) => (
+            <MenuItem key={menuItem.path + index}>
+              <MenuLink to={menuItem.path} onClick={handleNavigate}>
+                {menuItem.label}
+              </MenuLink>
+              <MenuDescription>{menuItem.description}</MenuDescription>
+            </MenuItem>
+          ))}
         </MenuContent>
       ) : null}
     </LoadingContainer>

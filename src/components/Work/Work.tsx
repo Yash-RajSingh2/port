@@ -2,7 +2,7 @@ import React from 'react';
 import type { WorkProps } from './Work.interfaces';
 import {  ExperienceCard, WorkImage, WorkInfo, WorkHeader, WorkTitleRow, JobTitle, Company, Period, Description } from './WorkComponents';
 import { Container, ContentWrapper } from '@components/Common/CommonComponents';
-import { AboutTitle } from '../AboutComponents';
+import { AboutTitle } from '@components/About/AboutComponents';
 
 const Work: React.FC<WorkProps> = ({ experiences }) => {
   return (

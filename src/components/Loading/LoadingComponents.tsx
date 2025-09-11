@@ -1,4 +1,4 @@
-import styled, { keyframes, css } from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import { Link } from 'react-router-dom';
 
 interface LoadingContainerProps {
@@ -121,6 +121,9 @@ export const MenuItem = styled.div`
   &:nth-child(4) {
     animation-delay: 1.8s;
   }
+  &:nth-child(5) {
+    animation-delay: 1.95s;
+  }
 `;
 
 export const MenuDescription = styled.span`
@@ -201,25 +204,18 @@ export const AnimatedHeaderContainer = styled.div`
 
 
 
-export const SocialIcon = styled.a`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 40px;
-  height: 40px;
+export const SocialIcon = styled.img`
+  display: block;
+  width: 60px;
+  aspect-ratio: 1/1;
+  padding: 4px;
   border-radius: 50%;
-  background-color: var(--text);
-  color: var(--fill);
   text-decoration: none;
-  font-size: 12px;
-  font-weight: 600;
   transition: all 0.2s ease;
-  text-indent: -9999px;
-  overflow: hidden;
-  position: relative;
   opacity: 0;
   animation: ${socialIconsSlideIn} 0.6s ease-out forwards;
-
+  cursor: pointer;
+  object-fit: contain;
   &:nth-child(1) {
     animation-delay: 1.0s;
   }
@@ -234,45 +230,6 @@ export const SocialIcon = styled.a`
 
   &:nth-child(4) {
     animation-delay: 1.3s;
-  }
-
-  &:hover {
-    transform: scale(1.1);
-    background-color: var(--accent, #007bff);
-  }
-
-  &::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 12px;
-    font-weight: bold;
-    color: var(--fill);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 20px;
-    height: 20px;
-    text-indent: 0;
-  }
-
-  &.social-icon--bs::before {
-    content: 'BS';
-  }
-
-  &.social-icon--ig::before {
-    content: 'IG';
-  }
-
-  &.social-icon--gh::before {
-    content: 'GH';
-  }
-
-  &.social-icon--email::before {
-    content: '@';
-    font-size: 16px;
   }
 `;
 

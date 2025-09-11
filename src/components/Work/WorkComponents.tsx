@@ -2,11 +2,10 @@ import styled from 'styled-components';
 
 export const WorkImage = styled.img`
   width: 140px;
-  height: 100%;
-  min-height: 140px;
+  padding: 1.5rem;
+  aspect-ratio: 1/1;
   object-fit: cover;
   border-radius: 12px;
-  border: 2px solid var(--line);
 `;
 
 export const WorkInfo = styled.div`

@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Homepage from "@routes/pages/homepage/homepage";
 import About from "@routes/pages/about/About";
 import Projects from "@routes/pages/projects/Projects";
+import Awards from "@routes/pages/awards/Awards.tsx";
 import { ThemeProvider } from "@context/ThemeContext";
 import { GlobalStyles } from "@globalStyles/globalStyles";
 import { useAppSelector } from "@context/reducer/store";
@@ -18,6 +19,7 @@ const App = () => {
           <Route path="/" element={<Homepage />} />
           <Route path="/about" element={<About />} />
           <Route path="/projects" element={<Projects />} />
+          <Route path="/awards" element={<Awards />} />
         </Routes>
       </ThemeProvider>
     </Router>

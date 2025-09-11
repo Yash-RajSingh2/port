@@ -1,9 +1,7 @@
 import styled, { keyframes, css } from 'styled-components';
-import React from 'react';
 import { AboutTitle, AboutText } from '@components/About/AboutComponents';
 import { ScrollSection } from '@components/Landing/LandingComponents';
 import { Container } from '@components/Common/CommonComponents';
-import type { ProjectItemProps } from './Projects.interfaces';
 
 export const ProjectsContainer = styled(Container)`
   margin-top: 3rem; /* Add margin-top to the container */

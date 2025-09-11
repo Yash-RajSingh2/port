@@ -35,7 +35,7 @@ export const Button = styled.p`
   font-weight: 700;
   &:hover {
     background: var(--fill);
-    color: var(--bg);
+    color: var(--text);
   }
 
   &:focus {
