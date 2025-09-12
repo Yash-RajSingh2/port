@@ -36,7 +36,7 @@ const AboutLanding: React.FC<AboutLandingProps> = () => {
         <AboutLandingText>
           I’m a <b>software engineer</b> with a passion for technology and
           problem-solving. Outside of work, I enjoy <b>gaming</b> and often take
-          time to <b>explore</b> new places on a bike, combining my love for
+          time to <b>explore</b> new places on a bike and <b>photography</b>, combining my love for
           adventure with the thrill of discovery.
         </AboutLandingText>
       </AnimatedContentWrapper>
