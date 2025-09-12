@@ -179,7 +179,11 @@ export const MoreComingMessage = styled(AwardsTitle)`
   margin: 6rem auto 2%;
 
   font-size: 2.2rem;
-
+  &::after {
+    bottom: calc(
+      -10px - 0.5rem
+    );
+  }
   @media (max-width: 768px) {
     margin-top: 4rem;
     margin-bottom: 3rem;

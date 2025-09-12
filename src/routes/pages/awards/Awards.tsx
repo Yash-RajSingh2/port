@@ -2,17 +2,11 @@ import React from 'react';
 import type { AwardsProps } from './Awards.interfaces';
 import Layout from '@components/Layout/Layout';
 import AwardsLanding from '@components/AwardsLanding/AwardsLanding';
-import {
-  AnimatedAwardsListContainer,
-  PositionedDiagonalLines,
-  AwardsCircles,
-  AnimatedMoreComingMessage,
-} from "./AwardsComponents.tsx";
+import { AwardsList } from '@components/Awards/AwardsList';
+import { AnimatedMoreComingMessage } from "./AwardsComponents";
 import { awards } from '@/data/awards';
-import { AwardItem } from './AwardItem';
-import { Container, AnimatedContentWrapper } from '@/components/Common/CommonComponents.tsx';
+import { Container, AnimatedContentWrapper } from '@/components/Common/CommonComponents';
 import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
-
 
 const Awards: React.FC<AwardsProps> = () => {
   const { elementRef: listRef, isIntersecting: listVisible } = useIntersectionObserver({
@@ -28,29 +22,14 @@ const Awards: React.FC<AwardsProps> = () => {
   return (
     <Layout>
       <AwardsLanding />
-      <Container style={{ padding: '0 2rem 0' }} ref={listRef}>
+      <Container style={{ padding: '0 2rem 0' }} topMargin="25rem" ref={listRef}>
         <AnimatedContentWrapper
           flexDirection="column"
           alignItems="flex-start"
           gap="2rem"
           isVisible={listVisible}
         >
-          <AnimatedAwardsListContainer isVisible={listVisible}>
-            <PositionedDiagonalLines top="2%" right="5%" />
-            <AwardsCircles top="15%" left="-10%" width="30%" height="10%" />
-            <AwardsCircles top="38%" right="5%" width="30%" height="10%" />
-            <PositionedDiagonalLines top="50%" left="10%" opacity={0.4} />
-            <AwardsCircles top="70%" left="80%" width="25%" height="10%" />
-            <PositionedDiagonalLines top="85%" right="10%" opacity={0.6} />
-            
-            {awards.map((award, index) => (
-              <AwardItem
-                key={`${award.name}-${index}`}
-                award={award}
-                index={index}
-              />
-            ))}
-          </AnimatedAwardsListContainer>
+          <AwardsList awards={awards} isVisible={listVisible} />
           
           <AnimatedMoreComingMessage 
             ref={messageRef}
@@ -60,7 +39,6 @@ const Awards: React.FC<AwardsProps> = () => {
             More achievements brewing in the pipeline
           </AnimatedMoreComingMessage>
         </AnimatedContentWrapper>
-
       </Container>
     </Layout>
   );

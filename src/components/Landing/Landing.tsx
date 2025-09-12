@@ -1,52 +1,16 @@
 import React from 'react';
-import type { LandingProps } from './Landing.interfaces';
-import {
-  TextSection,
-  ImageSection,
-  ProfileImage,
-  DiagonalLines,
-  ScrollSection,
-  ScrollText,
-  BouncingLetter,
-} from "./LandingComponents";
-import { Container, AnimatedContentWrapper } from '@components/Common/CommonComponents';
-import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
-import meImage from '@assets/me.png';
+import { HeroSection } from '@components/Common/HeroSection';
+import { AnimatedScrollText } from '@components/Common/AnimatedScrollText';
+import { ProfileSection } from './ProfileSection';
 
-const Landing: React.FC<LandingProps> = () => {
-  const scrollText = "SCROLL";
-  const { elementRef, isIntersecting } = useIntersectionObserver({
-    threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px',
-  });
-
+const Landing: React.FC = () => {
   return (
-    <Container minHeight="90vh" ref={elementRef}>
-      <AnimatedContentWrapper flexDirection="row" isVisible={isIntersecting}>
-        <TextSection>
-          <p>
-            Hi, my <br />name is <b>Yash </b>.
-          </p>
-          <span>
-            I'm a <b>Software Engineer</b>
-          </span>
-        </TextSection>
-        <ImageSection>
-          <ProfileImage src={meImage} alt="Profile" />
-          <DiagonalLines />
-        </ImageSection>
-      </AnimatedContentWrapper>
-      
-      <ScrollSection>
-        <ScrollText>
-          {scrollText.split('').map((letter, index) => (
-            <BouncingLetter key={index} delay={index * 0.1}>
-              {letter}
-            </BouncingLetter>
-          ))}
-        </ScrollText>
-      </ScrollSection>
-    </Container>
+    <>
+      <HeroSection minHeight="90vh">
+        <ProfileSection name="Yash" title="Software Engineer" />
+      </HeroSection>
+      <AnimatedScrollText text="SCROLL" letterDelay={0.1} topMargin="-5rem" />
+    </>
   );
 };
 

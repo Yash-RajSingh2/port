@@ -1,5 +1,4 @@
 import styled, { keyframes, css } from 'styled-components';
-import React from 'react';
 
 export const ContactContainer = styled.section`
   width: 65%;
@@ -112,51 +111,4 @@ export const AnimatedContactButton = styled(ContactButton)<{ isVisible?: boolean
   transition: all 0.5s ease ${props => props.delay || 0}s;
 `;
 
-interface CirclesProps {
-  top?: string;
-  left?: string;
-  width?: string;
-  height?: string;
-}
-
-export const Circles: React.FC<CirclesProps> = ({ 
-  top = "-8%", 
-  left = "-40%", 
-  width = "40%", 
-  height = "10%" 
-}) => {
-  return (
-    <div
-      style={{
-        position: "absolute",
-        width: "100%",
-        height: "100%",
-        zIndex: -1,
-        pointerEvents: "none",
-        top,
-        left,
-      }}
-    >
-      <svg width={width} height={height} xmlns="http://www.w3.org/2000/svg">
-        <defs>
-          <pattern
-            id="circle-dots"
-            patternUnits="userSpaceOnUse"
-            width="20"
-            height="18"
-          >
-            <circle
-              cx="6"
-              cy="6"
-              r="2"
-              fill="var(--subtext)"
-              opacity="0.3"
-            />
-          </pattern>
-        </defs>
-
-        <rect width="100%" height="100%" fill="url(#circle-dots)" />
-      </svg>
-    </div>
-  );
-}; 
+// Circles component has been moved to CommonComponents.tsx for better reusability 

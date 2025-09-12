@@ -80,7 +80,7 @@ export const ScrollSection = styled.div`
   display: flex;
   margin: 2rem 0 0 10%;
   opacity: 0;
-  animation: fadeSlideUp 0.8s ease-out 2s forwards;
+  animation: fadeSlideUp 0.8s ease-out 1.2s forwards;
   &::after {
     content: "";
     transform-origin: bottom center;

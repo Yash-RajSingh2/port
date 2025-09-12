@@ -1,17 +1,11 @@
 import React, { useMemo } from 'react';
-import {
-  SkillsContainer,
-  SkillsTitle,
-  SkillsCloudContainer,
-  SkillCard,
-} from '@/routes/pages/about/AboutComponents';
-import { ContentWrapper } from '@/components/Common/CommonComponents';
+import { ContentWrapper, Container } from '@/components/Common/CommonComponents';
+import { SectionTitle } from '@/components/Common/SectionComponents';
+import { SkillCard, SkillsCloudContainer } from '@/routes/pages/about/AboutComponents';
 import { skills } from '@/data/skills';
 import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
 
-interface SkillsProps {}
-
-const Skills: React.FC<SkillsProps> = () => {
+const Skills: React.FC = () => {
   const { elementRef, isIntersecting } = useIntersectionObserver({
     threshold: 0.2,
     rootMargin: '0px 0px -100px 0px',
@@ -43,11 +37,19 @@ const Skills: React.FC<SkillsProps> = () => {
   }, []);
 
   return (
-    <SkillsContainer ref={elementRef}>
+    <Container 
+      minHeight="80vh" 
+      maxHeight="85vh" 
+      padding="4rem 2rem" 
+      isRelative 
+      hasOverflow 
+      ref={elementRef} 
+      topMargin="15rem"
+    >
       <ContentWrapper flexDirection="column" alignItems="flex-start" gap="4rem">
-        <SkillsTitle>
+        <SectionTitle isVisible={isIntersecting} alignment="left">
           My Skills<span>.</span>
-        </SkillsTitle>
+        </SectionTitle>
         <SkillsCloudContainer>
           {skills.map((skill, index) => (
             <SkillCard
@@ -62,7 +64,7 @@ const Skills: React.FC<SkillsProps> = () => {
           ))}
         </SkillsCloudContainer>
       </ContentWrapper>
-    </SkillsContainer>
+    </Container>
   );
 };
 

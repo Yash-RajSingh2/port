@@ -1,13 +1,25 @@
+import React from 'react';
 import styled from 'styled-components';
 
-export const Container = styled.section<{ minHeight?: string }>`
+export const Container = styled.section<{ 
+  minHeight?: string; 
+  maxHeight?: string;
+  topMargin?: string;
+  padding?: string;
+  hasOverflow?: boolean;
+  isRelative?: boolean;
+}>`
   width: 100%;
   min-height: ${props => props.minHeight || '50vh'};
+  ${props => props.maxHeight && `max-height: ${props.maxHeight};`}
+  margin-top: ${props => props.topMargin || '0'};
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 0 2rem 2rem;
+  padding: ${props => props.padding || '0 2rem 2rem'};
+  ${props => props.isRelative && 'position: relative;'}
+  ${props => props.hasOverflow && 'overflow: hidden;'}
   background: var(--background);
 `;
 
@@ -18,6 +30,7 @@ export const ContentWrapper = styled.div<{ flexDirection?: 'row' | 'column', ali
   gap: ${props => props.gap || '4rem'};
   max-width: 1200px;
   width: 100%;
+  overflow-x: hidden;
 `;
 
 export const Button = styled.p`
@@ -61,4 +74,51 @@ export const AnimatedButton = styled(Button)<{ isVisible?: boolean, delay?: numb
   opacity: ${props => props.isVisible ? 1 : 0};
   transform: translateY(${props => props.isVisible ? '0' : '20px'});
   transition: all 0.5s ease ${props => props.delay || 0}s;
-`; 
+`;
+
+// Reusable Circles component for decorative backgrounds
+interface CirclesProps {
+  top?: string;
+  left?: string;
+  width?: string;
+  height?: string;
+}
+
+export const Circles: React.FC<CirclesProps> = ({ 
+  top = "-8%", 
+  left = "-40%", 
+  width = "40%", 
+  height = "10%" 
+}) => {
+  // Generate a unique ID using timestamp and random number to avoid conflicts
+  const patternId = `circle-dots-${Date.now()}-${Math.floor(Math.random() * 1000)}`;
+  
+  return (
+    <div
+      style={{
+        position: "absolute",
+        width: width,
+        height: height,
+        zIndex: -1,
+        pointerEvents: "none",
+        top,
+        left,
+      }}
+    >
+      <svg width={"100%"} height={"100%"} xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <pattern
+            id={patternId}
+            patternUnits="userSpaceOnUse"
+            width="20"
+            height="18"
+          >
+            <circle cx="6" cy="6" r="2" fill="var(--subtext)" opacity="0.3" />
+          </pattern>
+        </defs>
+
+        <rect width="100%" height="100%" fill={`url(#${patternId})`} />
+      </svg>
+    </div>
+  );
+}; 

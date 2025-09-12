@@ -1,15 +1,14 @@
 import React from 'react';
-import type { ContactProps } from './Contact.interfaces';
 import {
   AnimatedContactContainer,
   AnimatedContactTitle,
   AnimatedContactDescription,
   AnimatedContactButton,
-  Circles,
 } from './ContactComponents';
+import { Circles } from '@components/Common/CommonComponents';
 import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
 
-const Contact: React.FC<ContactProps> = () => {
+const Contact: React.FC = () => {
   const { elementRef, isIntersecting } = useIntersectionObserver({
     threshold: 0.2,
     rootMargin: '0px 0px -100px 0px',
@@ -21,7 +20,7 @@ const Contact: React.FC<ContactProps> = () => {
 
   return (
     <AnimatedContactContainer ref={elementRef} isVisible={isIntersecting}>
-      <Circles />
+      <Circles height="60%"  width="50%" left="-30%"/>
       <AnimatedContactTitle isVisible={isIntersecting} delay={0.1}>
         Let's Collaborate
       </AnimatedContactTitle>

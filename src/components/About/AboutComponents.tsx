@@ -4,7 +4,6 @@ export const AboutTitle = styled.h2`
   font-family: Bitter;
   font-size: 60px;
   color: var(--text);
-  margin-top: 2rem;
   position: relative;
   opacity: 0;
   transform: translateY(30px);
@@ -52,7 +51,7 @@ export const AboutText = styled.p`
   max-width: 50%;
   color: var(--text);
   line-height: 1.8;
-  margin-top: 0.5rem;
+  margin-top: 3rem;
   opacity: 0;
   transform: translateY(30px);
   animation: fadeSlideUp 0.8s ease-out 0.6s forwards;

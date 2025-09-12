@@ -87,7 +87,7 @@ export const PolaroidCard = styled.div<{ isVisible?: boolean; delay?: number }>`
   background: white;
   padding: 15px 15px 50px 15px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
-  transform: rotate(${props => Math.random() * 6 - 3}deg);
+  transform: rotate(${Math.random() * 6 - 3}deg);
   transition: all 0.3s ease;
   cursor: pointer;
   width: 40%;
@@ -106,11 +106,11 @@ export const PolaroidCard = styled.div<{ isVisible?: boolean; delay?: number }>`
   }
   
   &:nth-child(even) {
-    transform: rotate(${props => Math.random() * 6 - 3}deg);
+    transform: rotate(${Math.random() * 6 - 3}deg);
   }
   
   &:nth-child(odd) {
-    transform: rotate(${props => -(Math.random() * 6 - 3)}deg);
+    transform: rotate(${(Math.random() * 6 - 3)}deg);
   }
   
   @media (max-width: 768px) {

@@ -3,12 +3,9 @@ import type { ProjectsProps } from './Projects.interfaces';
 import Layout from '@components/Layout/Layout';
 import ProjectsLanding from '@components/ProjectsLanding/ProjectsLanding';
 import Contact from '@components/Contact/Contact';
-import {
-  AnimatedProjectsListContainer,
-} from "./ProjectsComponents.tsx";
+import { ProjectsList } from '@components/Projects/ProjectsList';
 import { projects } from '@/data/projects';
-import { ProjectItem } from './ProjectItem';
-import { Container, AnimatedContentWrapper } from '@/components/Common/CommonComponents.tsx';
+import { Container, AnimatedContentWrapper } from '@/components/Common/CommonComponents';
 import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
 
 const Projects: React.FC<ProjectsProps> = () => {
@@ -20,14 +17,10 @@ const Projects: React.FC<ProjectsProps> = () => {
   return (
     <Layout>  
       <ProjectsLanding />
-       <Container minHeight="80vh" ref={elementRef}>
-      <AnimatedContentWrapper flexDirection="column" alignItems="flex-start" gap="2rem" isVisible={isIntersecting}>
-      <AnimatedProjectsListContainer isVisible={isIntersecting}>
-        {projects.map((project, index) => (
-          <ProjectItem key={project.id} project={project} index={index} />
-        ))}
-      </AnimatedProjectsListContainer>
-      </AnimatedContentWrapper>
+      <Container minHeight="80vh" ref={elementRef} topMargin="10rem"> 
+        <AnimatedContentWrapper flexDirection="column" alignItems="flex-start" gap="2rem" isVisible={isIntersecting}>
+          <ProjectsList projects={projects} isVisible={isIntersecting} />
+        </AnimatedContentWrapper>
       </Container>
       <Contact />
     </Layout>

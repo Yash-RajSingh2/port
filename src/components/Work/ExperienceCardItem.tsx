@@ -25,7 +25,7 @@ interface ExperienceCardItemProps {
   index: number;
 }
 
-export const ExperienceCardItem: React.FC<ExperienceCardItemProps> = ({ experience }) => {
+export const ExperienceCardItem: React.FC<ExperienceCardItemProps> = ({ experience, index }) => {
   // Each experience card gets its own intersection observer
   const { elementRef, isIntersecting } = useIntersectionObserver({
     threshold: 0.2,
@@ -37,6 +37,7 @@ export const ExperienceCardItem: React.FC<ExperienceCardItemProps> = ({ experien
       ref={elementRef}
       isVisible={isIntersecting} 
       delay={0.1}
+      style={{ marginTop: index === 0 ? '1rem' : '0' }}
     >
       <WorkImage src={experience.imageSrc} alt={`${experience.company} logo`} />
       <WorkInfo>
