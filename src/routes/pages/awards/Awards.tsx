@@ -13,6 +13,7 @@ import { AwardItem } from './AwardItem';
 import { Container, AnimatedContentWrapper } from '@/components/Common/CommonComponents.tsx';
 import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
 
+
 const Awards: React.FC<AwardsProps> = () => {
   const { elementRef: listRef, isIntersecting: listVisible } = useIntersectionObserver({
     threshold: 0.05,
@@ -59,6 +60,7 @@ const Awards: React.FC<AwardsProps> = () => {
             More achievements brewing in the pipeline
           </AnimatedMoreComingMessage>
         </AnimatedContentWrapper>
+
       </Container>
     </Layout>
   );

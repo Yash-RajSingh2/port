@@ -11,6 +11,7 @@ import {
 } from './AwardsComponents';
 import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
 
+
 interface AwardItemProps {
   award: Award;
   index: number;
@@ -18,6 +19,7 @@ interface AwardItemProps {
 
 export const AwardItem: React.FC<AwardItemProps> = ({ award, index }) => {
   const [imageLoaded, setImageLoaded] = useState(false);
+
   const [shouldAnimateLoader, setShouldAnimateLoader] = useState(false);
   const isReversed = index % 2 === 1; // Alternate alignment
 
@@ -27,9 +29,11 @@ export const AwardItem: React.FC<AwardItemProps> = ({ award, index }) => {
     rootMargin: '0px 0px -100px 0px',
   });
 
+
   const handleImageLoad = () => {
     setImageLoaded(true);
   };
+
 
   // Always show loader initially, then animate it away after element is visible and image is loaded
   useEffect(() => {
@@ -48,7 +52,7 @@ export const AwardItem: React.FC<AwardItemProps> = ({ award, index }) => {
       data-index={index} 
       $isReversed={isReversed}
       isVisible={isIntersecting}
-      delay={0.1}
+      delay={0}
     >
       <AwardImageSection>
         <AwardImageContainer>
@@ -56,6 +60,7 @@ export const AwardItem: React.FC<AwardItemProps> = ({ award, index }) => {
             $isLoaded={imageLoaded} 
             $shouldAnimate={shouldAnimateLoader}
           />
+
           <AwardImage
             src={award.image}
             alt={award.name}

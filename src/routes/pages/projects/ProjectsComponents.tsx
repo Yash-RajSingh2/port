@@ -31,16 +31,6 @@ export const ProjectsScrollSection = styled(ScrollSection)`
   margin-top: 4rem;
 `;
 
-const projectItemSlideDown = keyframes`
-  from {
-    opacity: 0;
-    transform: translateY(-30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-`;
 
 const imageLoaderSlideUp = keyframes`
   from {

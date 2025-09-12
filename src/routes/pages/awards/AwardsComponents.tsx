@@ -149,16 +149,6 @@ export const AwardsScrollSection = styled(ScrollSection)`
   margin-top: 4rem;
 `;
 
-const awardItemSlideDown = keyframes`
-  from {
-    opacity: 0;
-    transform: translateY(-30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-`;
 
 const imageLoaderSlideUp = keyframes`
   from {
@@ -187,6 +177,7 @@ export const AwardsListContainer = styled.div`
 
 export const MoreComingMessage = styled(AwardsTitle)`
   margin: 6rem auto 2%;
+
   font-size: 2.2rem;
 
   @media (max-width: 768px) {
@@ -204,6 +195,7 @@ export const AwardItemContainer = styled.div<{ $isReversed: boolean }>`
   aspect-ratio: 3/2;
   display: flex;
   flex-direction: column;
+
   align-self: ${(props) => (props.$isReversed ? "flex-end" : "flex-start")};
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   border-radius: 16px;
@@ -213,6 +205,7 @@ export const AwardItemContainer = styled.div<{ $isReversed: boolean }>`
     transform: translateY(-10px);
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
   }
+
 
   @media (max-width: 768px) {
     width: 90%;
@@ -240,7 +233,9 @@ export const AwardImageContainer = styled.div`
   justify-content: center;
 `;
 
+
 export const AwardImageLoader = styled.div<{ $isLoaded: boolean; $shouldAnimate: boolean }>`
+
   position: absolute;
   top: 0;
   left: 0;
@@ -248,8 +243,10 @@ export const AwardImageLoader = styled.div<{ $isLoaded: boolean; $shouldAnimate:
   height: 100%;
   background: var(--subtext);
   z-index: 3;
+
   ${props => props.$isLoaded && props.$shouldAnimate && css`
-    animation: ${imageLoaderSlideUp} 0.8s ease-out 0.5s forwards;
+    animation: ${imageLoaderSlideUp} 0.3s ease-out 0.15s forwards;
+
   `}
   transform-origin: bottom;
 `;
@@ -318,8 +315,7 @@ export const AwardDescription = styled.p`
     padding: 2.5rem 1.2rem 1.2rem;
     font-size: 1rem;
   }
-`;
-
+`
 // Animated versions for intersection observer
 export const AnimatedAwardsListContainer = styled(AwardsListContainer)<{ isVisible?: boolean }>`
   opacity: ${props => props.isVisible ? 1 : 0};

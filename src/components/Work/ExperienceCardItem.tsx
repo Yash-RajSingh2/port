@@ -25,7 +25,7 @@ interface ExperienceCardItemProps {
   index: number;
 }
 
-export const ExperienceCardItem: React.FC<ExperienceCardItemProps> = ({ experience, index }) => {
+export const ExperienceCardItem: React.FC<ExperienceCardItemProps> = ({ experience }) => {
   // Each experience card gets its own intersection observer
   const { elementRef, isIntersecting } = useIntersectionObserver({
     threshold: 0.2,
