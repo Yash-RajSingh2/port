@@ -1,7 +1,7 @@
-import styled from 'styled-components';
-import { AboutTitle, AboutText } from '@components/About/AboutComponents';
-import { ScrollSection } from '@components/Landing/LandingComponents';
-import { Container } from '@components/Common/CommonComponents';
+import styled from "styled-components";
+import { AboutTitle, AboutText } from "@components/About/AboutComponents";
+import { ScrollSection } from "@components/Landing/LandingComponents";
+import { Container } from "@components/Common/CommonComponents";
 
 export const AboutContainer = styled(Container)`
   margin-top: 3rem;
@@ -9,13 +9,11 @@ export const AboutContainer = styled(Container)`
 `;
 
 export const AboutLandingTitle = styled(AboutTitle)`
-  span{
+  span {
     color: var(--subtext);
   }
   &::after {
-    bottom: calc(
-      -10px - 2rem
-    );
+    bottom: calc(-10px - 2rem);
   }
 `;
 
@@ -45,20 +43,25 @@ export const SkillsTitle = styled(AboutLandingTitle)`
   text-align: left !important;
   margin-bottom: 4rem;
   align-self: flex-start;
-  
+
   &::after {
     left: 0 !important;
     transform: translateX(0) !important;
   }
 `;
 
-export const AdventuresTitle = styled(AboutLandingTitle)<{ isVisible?: boolean; delay?: number }>`
+export const AdventuresTitle = styled(AboutLandingTitle)<{
+  isVisible?: boolean;
+  delay?: number;
+}>`
   text-align: left !important;
   align-self: flex-start;
-  opacity: ${props => props.isVisible ? 1 : 0};
-  transform: translateY(${props => props.isVisible ? '0' : '30px'});
-  transition: opacity 0.6s ease ${props => props.delay || 0}s, transform 0.6s ease ${props => props.delay || 0}s;
-  
+  opacity: ${(props) => (props.isVisible ? 1 : 0)};
+  transform: translateY(${(props) => (props.isVisible ? "0" : "30px")});
+  transition:
+    opacity 0.6s ease ${(props) => props.delay || 0}s,
+    transform 0.6s ease ${(props) => props.delay || 0}s;
+
   &::after {
     left: 0 !important;
     transform: translateX(0) !important;
@@ -70,13 +73,15 @@ export const AdventuresGrid = styled.div<{ isVisible?: boolean }>`
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
-  gap:4rem;
+  gap: 4rem;
   width: 100%;
   margin: 5rem 0 1rem;
-  opacity: ${props => props.isVisible ? 1 : 0};
-  transform: translateY(${props => props.isVisible ? '0' : '40px'});
-  transition: opacity 0.8s ease 0.2s, transform 0.8s ease 0.2s;
-  
+  opacity: ${(props) => (props.isVisible ? 1 : 0)};
+  transform: translateY(${(props) => (props.isVisible ? "0" : "40px")});
+  transition:
+    opacity 0.8s ease 0.2s,
+    transform 0.8s ease 0.2s;
+
   @media (max-width: 768px) {
     gap: 1.5rem;
     justify-content: center;
@@ -92,31 +97,31 @@ export const PolaroidCard = styled.div<{ isVisible?: boolean; delay?: number }>`
   cursor: pointer;
   width: 40%;
   flex-shrink: 0;
-  opacity: ${props => props.isVisible ? 1 : 0};
-  transform: ${props => props.isVisible 
-    ? `rotate(${Math.random() * 6 - 3}deg) translateY(0)` 
-    : `rotate(${Math.random() * 6 - 3}deg) translateY(30px)`
-  };
-  transition: all 0.6s ease ${props => props.delay || 0}s;
-  
+  opacity: ${(props) => (props.isVisible ? 1 : 0)};
+  transform: ${(props) =>
+    props.isVisible
+      ? `rotate(${Math.random() * 6 - 3}deg) translateY(0)`
+      : `rotate(${Math.random() * 6 - 3}deg) translateY(30px)`};
+  transition: all 0.6s ease ${(props) => props.delay || 0}s;
+
   &:hover {
     transform: rotate(0deg) translateY(-10px) scale(1.05);
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.25);
     z-index: 10;
   }
-  
+
   &:nth-child(even) {
     transform: rotate(${Math.random() * 6 - 3}deg);
   }
-  
+
   &:nth-child(odd) {
-    transform: rotate(${(Math.random() * 6 - 3)}deg);
+    transform: rotate(${Math.random() * 6 - 3}deg);
   }
-  
+
   @media (max-width: 768px) {
     padding: 12px 12px 40px 12px;
     width: 200px;
-    
+
     &:hover {
       transform: rotate(0deg) translateY(-5px) scale(1.02);
     }
@@ -139,15 +144,15 @@ export const SkillsCloudContainer = styled.div`
   margin: 0 auto;
 `;
 
-export const SkillCard = styled.div<{ 
-  top: string; 
-  left: string; 
+export const SkillCard = styled.div<{
+  top: string;
+  left: string;
   animationDelay: string;
   isVisible?: boolean;
 }>`
   position: absolute;
-  top: ${props => props.top};
-  left: ${props => props.left};
+  top: ${(props) => props.top};
+  left: ${(props) => props.left};
   background: transparent;
   color: var(--text);
   padding: 0.8rem 1.5rem;
@@ -155,10 +160,10 @@ export const SkillCard = styled.div<{
   font-size: 1rem;
   cursor: pointer;
   transition: all 0.3s ease;
-  transform: translateY(${props => props.isVisible ? '0' : '30px'});
-  opacity: ${props => props.isVisible ? 1 : 0};
-  animation-delay: ${props => props.animationDelay};
-  
+  transform: translateY(${(props) => (props.isVisible ? "0" : "30px")});
+  opacity: ${(props) => (props.isVisible ? 1 : 0)};
+  animation-delay: ${(props) => props.animationDelay};
+
   /* Simple rounded border styling */
   border: 2px solid var(--subtext);
   border-radius: 25px;
@@ -167,18 +172,18 @@ export const SkillCard = styled.div<{
   justify-content: center;
   white-space: nowrap;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-  
+
   &:hover {
-    transform: translateY(${props => props.isVisible ? '-5px' : '25px'});
+    transform: translateY(${(props) => (props.isVisible ? "-5px" : "25px")});
     background: var(--duo);
     color: var(--background);
     border-color: var(--duo);
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
   }
-  
+
   /* Responsive adjustments */
   @media (max-width: 768px) {
     font-size: 0.9rem;
     padding: 0.7rem 1.2rem;
   }
-`; 
+`;

@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import styled, { keyframes, css } from 'styled-components';
+import React, { useState, useEffect } from "react";
+import styled, { keyframes, css } from "styled-components";
 
 const imageLoaderSlideUp = keyframes`
   from {
@@ -44,9 +44,12 @@ const ImageLoader = styled.div<{ $isLoaded: boolean; $shouldAnimate: boolean }>`
   height: 100%;
   background: var(--subtext);
   z-index: 2;
-  ${props => props.$isLoaded && props.$shouldAnimate && css`
-    animation: ${imageLoaderSlideUp} 0.3s ease-out 0.1s forwards;
-  `}
+  ${(props) =>
+    props.$isLoaded &&
+    props.$shouldAnimate &&
+    css`
+      animation: ${imageLoaderSlideUp} 0.3s ease-out 0.1s forwards;
+    `}
   transform-origin: bottom;
 `;
 
@@ -56,7 +59,9 @@ const Image = styled.img`
   aspect-ratio: 16/9;
   object-fit: center;
   border-radius: 12px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
 `;
 
 interface ProjectImageSectionProps {
@@ -68,7 +73,7 @@ interface ProjectImageSectionProps {
 export const ProjectImageSection: React.FC<ProjectImageSectionProps> = ({
   src,
   alt,
-  isVisible
+  isVisible,
 }) => {
   const [imageLoaded, setImageLoaded] = useState(false);
   const [shouldAnimateLoader, setShouldAnimateLoader] = useState(false);
@@ -91,16 +96,12 @@ export const ProjectImageSection: React.FC<ProjectImageSectionProps> = ({
   return (
     <ImageSection>
       <ImageContainer>
-        <Image 
-          src={src} 
-          alt={alt}
-          onLoad={handleImageLoad}
-        />
-        <ImageLoader 
-          $isLoaded={imageLoaded} 
-          $shouldAnimate={shouldAnimateLoader} 
+        <Image src={src} alt={alt} onLoad={handleImageLoad} />
+        <ImageLoader
+          $isLoaded={imageLoaded}
+          $shouldAnimate={shouldAnimateLoader}
         />
       </ImageContainer>
     </ImageSection>
   );
-}; 
+};

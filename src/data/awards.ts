@@ -47,4 +47,4 @@ export const awards: Award[] = [
     name: "Hacktoberfest 21 & 22",
     image: Hacktoberfest,
   },
-]; 
+];

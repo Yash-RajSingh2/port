@@ -1,6 +1,6 @@
-import React from 'react';
-import styled from 'styled-components';
-import { ProjectCard } from './ProjectCard';
+import React from "react";
+import styled from "styled-components";
+import { ProjectCard } from "./ProjectCard";
 
 const ListContainer = styled.div<{ isVisible?: boolean }>`
   width: 100%;
@@ -10,9 +10,11 @@ const ListContainer = styled.div<{ isVisible?: boolean }>`
   justify-content: space-between;
   gap: 16rem;
   margin-top: 30vh;
-  opacity: ${props => props.isVisible ? 1 : 0};
-  transform: translateY(${props => props.isVisible ? '0' : '30px'});
-  transition: opacity 0.6s ease, transform 0.6s ease;
+  opacity: ${(props) => (props.isVisible ? 1 : 0)};
+  transform: translateY(${(props) => (props.isVisible ? "0" : "30px")});
+  transition:
+    opacity 0.6s ease,
+    transform 0.6s ease;
 `;
 
 interface Project {
@@ -32,17 +34,13 @@ interface ProjectsListProps {
 
 export const ProjectsList: React.FC<ProjectsListProps> = ({
   projects,
-  isVisible
+  isVisible,
 }) => {
   return (
     <ListContainer isVisible={isVisible}>
       {projects.map((project, index) => (
-        <ProjectCard 
-          key={project.id} 
-          project={project} 
-          index={index} 
-        />
+        <ProjectCard key={project.id} project={project} index={index} />
       ))}
     </ListContainer>
   );
-}; 
+};

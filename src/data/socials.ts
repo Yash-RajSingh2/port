@@ -1,6 +1,6 @@
-import linkedinIcon from '@assets/linkedin.svg';
-import githubIcon from '@assets/github.svg';
-import gmailIcon from '@assets/gmail.svg';
+import linkedinIcon from "@assets/linkedin.svg";
+import githubIcon from "@assets/github.svg";
+import gmailIcon from "@assets/gmail.svg";
 
 export interface SocialData {
   name: string;
@@ -25,4 +25,4 @@ export const socials: SocialData[] = [
     link: "mailto:yashraj45202@gmail.com",
     logo: gmailIcon,
   },
-]; 
+];

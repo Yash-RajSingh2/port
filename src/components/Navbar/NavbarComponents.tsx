@@ -1,14 +1,19 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from "react";
+import styled from "styled-components";
+
+const StyledTriangleSvg = styled.svg`
+  width: 80px;
+  height: 40px;
+
+  @media (max-width: 500px) {
+    width: 60px;
+    height: 30px;
+  }
+`;
 
 export const TriangleLogo: React.FC = () => {
   return (
-    <svg
-      width="80"
-      height="40"
-      viewBox="70 38 88 34"
-      xmlns="http://www.w3.org/2000/svg"
-    >
+    <StyledTriangleSvg viewBox="70 38 88 34" xmlns="http://www.w3.org/2000/svg">
       {/* Left triangle */}
       <polygon
         points="70,70 94,46 118,70"
@@ -23,7 +28,7 @@ export const TriangleLogo: React.FC = () => {
         stroke="var(--line)"
         strokeWidth="2.5"
       />
-    </svg>
+    </StyledTriangleSvg>
   );
 };
 
@@ -35,11 +40,11 @@ export const MenuTitle = styled.p`
   font-family: Bitter;
   padding-top: 10px;
   cursor: pointer;
-  transition: all 0.12s linear;
+  transition: all 0.1s linear;
   text-align: center;
-
-  &:hover {
-    letter-spacing: 10px;
+  @media (max-width: 500px) {
+    font-size: 0.75rem;
+    letter-spacing: 2px;
   }
 
   &::after {
@@ -50,11 +55,15 @@ export const MenuTitle = styled.p`
     margin-left: 16px;
     background: #919795;
     vertical-align: middle;
+    @media (max-width: 500px) {
+      height: 20px;
+    }
   }
 `;
 
 interface NavbarContainerProps {
   $zIndex: number;
+  $isMenuOpen: boolean;
 }
 
 export const NavbarContainer = styled.div<NavbarContainerProps>`
@@ -67,4 +76,13 @@ export const NavbarContainer = styled.div<NavbarContainerProps>`
   position: fixed;
   top: 3rem;
   z-index: ${({ $zIndex }) => $zIndex};
+  @media (max-width: 500px) {
+    padding-right: 0rem;
+    background-color: ${({ $isMenuOpen }) =>
+      $isMenuOpen ? "transparent" : "var(--bg)"};
+    top: 1rem;
+    right: 2rem;
+    width: 100%;
+    justify-content: end;
+  }
 `;

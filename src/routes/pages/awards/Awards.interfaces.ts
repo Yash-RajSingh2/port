@@ -16,4 +16,4 @@ export interface AwardsProps {
 export interface AwardItemProps {
   award: AwardData;
   index: number;
-} 
+}

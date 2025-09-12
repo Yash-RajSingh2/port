@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import type { Award } from '@/data/awards';
+import React, { useState, useEffect } from "react";
+import type { Award } from "@/data/awards";
 import {
   AnimatedAwardItemContainer,
   AwardImageSection,
@@ -8,9 +8,8 @@ import {
   AwardImage,
   AwardNameOverlay,
   AwardDescription,
-} from './AwardsComponents';
-import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
-
+} from "./AwardsComponents";
+import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
 
 interface AwardItemProps {
   award: Award;
@@ -26,14 +25,12 @@ export const AwardItem: React.FC<AwardItemProps> = ({ award, index }) => {
   // Each award item gets its own intersection observer
   const { elementRef, isIntersecting } = useIntersectionObserver({
     threshold: 0.2,
-    rootMargin: '0px 0px -100px 0px',
+    rootMargin: "0px 0px -100px 0px",
   });
-
 
   const handleImageLoad = () => {
     setImageLoaded(true);
   };
-
 
   // Always show loader initially, then animate it away after element is visible and image is loaded
   useEffect(() => {
@@ -47,17 +44,17 @@ export const AwardItem: React.FC<AwardItemProps> = ({ award, index }) => {
   }, [isIntersecting, imageLoaded]);
 
   return (
-    <AnimatedAwardItemContainer 
+    <AnimatedAwardItemContainer
       ref={elementRef}
-      data-index={index} 
+      data-index={index}
       $isReversed={isReversed}
       isVisible={isIntersecting}
       delay={0}
     >
       <AwardImageSection>
         <AwardImageContainer>
-          <AwardImageLoader 
-            $isLoaded={imageLoaded} 
+          <AwardImageLoader
+            $isLoaded={imageLoaded}
             $shouldAnimate={shouldAnimateLoader}
           />
 
@@ -66,14 +63,10 @@ export const AwardItem: React.FC<AwardItemProps> = ({ award, index }) => {
             alt={award.name}
             onLoad={handleImageLoad}
           />
-          <AwardNameOverlay>
-            {award.name}
-          </AwardNameOverlay>
+          <AwardNameOverlay>{award.name}</AwardNameOverlay>
         </AwardImageContainer>
       </AwardImageSection>
-      <AwardDescription>
-        {award.desc}
-      </AwardDescription>
+      <AwardDescription>{award.desc}</AwardDescription>
     </AnimatedAwardItemContainer>
   );
-}; 
+};

@@ -1,20 +1,20 @@
-import React, { useState, useEffect } from 'react';
-import { 
-  AnimatedProjectItemContainer, 
-  ProjectImageSection, 
+import React, { useState, useEffect } from "react";
+import {
+  AnimatedProjectItemContainer,
+  ProjectImageSection,
   ProjectImageContainer,
   ProjectImageLoader,
-  ProjectImage, 
-  ProjectContentSection, 
-  ProjectTitle, 
-  ProjectDescription, 
-  ProjectTechnologies, 
-  ProjectLinks, 
-  ProjectLink, 
-  TechnologyTag 
-} from './ProjectsComponents';
-import type { ProjectItemProps } from './Projects.interfaces';
-import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
+  ProjectImage,
+  ProjectContentSection,
+  ProjectTitle,
+  ProjectDescription,
+  ProjectTechnologies,
+  ProjectLinks,
+  ProjectLink,
+  TechnologyTag,
+} from "./ProjectsComponents";
+import type { ProjectItemProps } from "./Projects.interfaces";
+import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
 
 export const ProjectItem: React.FC<ProjectItemProps> = ({ project, index }) => {
   const [imageLoaded, setImageLoaded] = useState(false);
@@ -24,7 +24,7 @@ export const ProjectItem: React.FC<ProjectItemProps> = ({ project, index }) => {
   // Each project item gets its own intersection observer
   const { elementRef, isIntersecting } = useIntersectionObserver({
     threshold: 0.2,
-    rootMargin: '0px 0px -100px 0px',
+    rootMargin: "0px 0px -100px 0px",
   });
 
   const handleImageLoad = () => {
@@ -43,22 +43,22 @@ export const ProjectItem: React.FC<ProjectItemProps> = ({ project, index }) => {
   }, [isIntersecting, imageLoaded]);
 
   return (
-    <AnimatedProjectItemContainer 
+    <AnimatedProjectItemContainer
       ref={elementRef}
-      $isReversed={isReversed} 
-      isVisible={isIntersecting} 
+      $isReversed={isReversed}
+      isVisible={isIntersecting}
       delay={0.1}
     >
       <ProjectImageSection>
         <ProjectImageContainer>
-          <ProjectImage 
-            src={project.imageSrc} 
+          <ProjectImage
+            src={project.imageSrc}
             alt={project.title}
             onLoad={handleImageLoad}
           />
-          <ProjectImageLoader 
-            $isLoaded={imageLoaded} 
-            $shouldAnimate={shouldAnimateLoader} 
+          <ProjectImageLoader
+            $isLoaded={imageLoaded}
+            $shouldAnimate={shouldAnimateLoader}
           />
         </ProjectImageContainer>
       </ProjectImageSection>
@@ -66,7 +66,7 @@ export const ProjectItem: React.FC<ProjectItemProps> = ({ project, index }) => {
       <ProjectContentSection>
         <ProjectTitle>{project.title}</ProjectTitle>
         <ProjectDescription>{project.description}</ProjectDescription>
-        
+
         {project.technologies && (
           <ProjectTechnologies>
             {project.technologies.map((tech, techIndex) => (
@@ -74,15 +74,23 @@ export const ProjectItem: React.FC<ProjectItemProps> = ({ project, index }) => {
             ))}
           </ProjectTechnologies>
         )}
-        
+
         <ProjectLinks>
           {project.liveUrl && (
-            <ProjectLink href={project.liveUrl} target="_blank" rel="noopener noreferrer">
+            <ProjectLink
+              href={project.liveUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               Live Demo
             </ProjectLink>
           )}
           {project.githubUrl && (
-            <ProjectLink href={project.githubUrl} target="_blank" rel="noopener noreferrer">
+            <ProjectLink
+              href={project.githubUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               GitHub
             </ProjectLink>
           )}

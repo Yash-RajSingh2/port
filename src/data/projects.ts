@@ -1,4 +1,4 @@
-import type { ProjectData } from '@/routes/pages/projects/Projects.interfaces';
+import type { ProjectData } from "@/routes/pages/projects/Projects.interfaces";
 import Ensemble from "@assets/ensemble.webp";
 import OverWatch from "@assets/overwatch.webp";
 import ACEWebsite from "@assets/ace-website.webp";
@@ -60,4 +60,4 @@ export const projects: ProjectData[] = [
     liveUrl: "https://internsahara.netlify.app/",
     githubUrl: "https://github.com/example/social-analytics",
   },
-]; 
+];

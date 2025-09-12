@@ -1,8 +1,8 @@
-import styled, { keyframes, css } from 'styled-components';
-import { AboutTitle, AboutText } from '@components/About/AboutComponents';
-import { ScrollSection } from '@components/Landing/LandingComponents';
-import { Container } from '@components/Common/CommonComponents';
-import React from 'react';
+import styled, { keyframes, css } from "styled-components";
+import { AboutTitle, AboutText } from "@components/About/AboutComponents";
+import { ScrollSection } from "@components/Landing/LandingComponents";
+import { Container } from "@components/Common/CommonComponents";
+import React from "react";
 
 // Custom Circles component that doesn't cause height issues
 interface AwardsCirclesProps {
@@ -13,16 +13,16 @@ interface AwardsCirclesProps {
   height?: string;
 }
 
-export const AwardsCircles: React.FC<AwardsCirclesProps> = ({ 
-  top = "0", 
+export const AwardsCircles: React.FC<AwardsCirclesProps> = ({
+  top = "0",
   left,
   right,
-  width = "30%", 
-  height = "20%" 
+  width = "30%",
+  height = "20%",
 }) => {
   // Generate a unique ID using timestamp and random number
   const patternId = `circle-dots-${Date.now()}-${Math.floor(Math.random() * 1000)}`;
-  
+
   return (
     <div
       style={{
@@ -44,13 +44,7 @@ export const AwardsCircles: React.FC<AwardsCirclesProps> = ({
             width="20"
             height="18"
           >
-            <circle
-              cx="6"
-              cy="6"
-              r="2"
-              fill="var(--subtext)"
-              opacity="0.3"
-            />
+            <circle cx="6" cy="6" r="2" fill="var(--subtext)" opacity="0.3" />
           </pattern>
         </defs>
 
@@ -69,16 +63,12 @@ interface PositionedDiagonalLinesProps {
   opacity?: number;
 }
 
-export const PositionedDiagonalLines: React.FC<PositionedDiagonalLinesProps> = ({
-  top = "0",
-  right,
-  left,
-  transform = "rotate(0deg)",
-  opacity = 1
-}) => {
+export const PositionedDiagonalLines: React.FC<
+  PositionedDiagonalLinesProps
+> = ({ top = "0", right, left, transform = "rotate(0deg)", opacity = 1 }) => {
   // Generate a unique ID using timestamp and random number
   const patternId = `diagonal-stripes-${Date.now()}-${Math.floor(Math.random() * 1000)}`;
-  
+
   return (
     <div
       style={{
@@ -127,13 +117,11 @@ export const AwardsContainer = styled(Container)`
 `;
 
 export const AwardsTitle = styled(AboutTitle)`
-  span{
+  span {
     color: var(--subtext);
   }
   &::after {
-    bottom: calc(
-      -10px - 2rem
-    );
+    bottom: calc(-10px - 2rem);
   }
 `;
 
@@ -148,7 +136,6 @@ export const AwardsText = styled(AboutText)`
 export const AwardsScrollSection = styled(ScrollSection)`
   margin-top: 4rem;
 `;
-
 
 const imageLoaderSlideUp = keyframes`
   from {
@@ -168,7 +155,7 @@ export const AwardsListContainer = styled.div`
   gap: 8rem;
   margin-top: 5vh;
   position: relative;
-  
+
   @media (max-width: 768px) {
     gap: 6rem;
     margin-top: 3vh;
@@ -180,9 +167,7 @@ export const MoreComingMessage = styled(AwardsTitle)`
 
   font-size: 2.2rem;
   &::after {
-    bottom: calc(
-      -10px - 0.5rem
-    );
+    bottom: calc(-10px - 0.5rem);
   }
   @media (max-width: 768px) {
     margin-top: 4rem;
@@ -201,7 +186,9 @@ export const AwardItemContainer = styled.div<{ $isReversed: boolean }>`
   flex-direction: column;
 
   align-self: ${(props) => (props.$isReversed ? "flex-end" : "flex-start")};
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
   border-radius: 16px;
   border: 1px solid var(--subtext);
 
@@ -209,7 +196,6 @@ export const AwardItemContainer = styled.div<{ $isReversed: boolean }>`
     transform: translateY(-10px);
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
   }
-
 
   @media (max-width: 768px) {
     width: 90%;
@@ -237,9 +223,10 @@ export const AwardImageContainer = styled.div`
   justify-content: center;
 `;
 
-
-export const AwardImageLoader = styled.div<{ $isLoaded: boolean; $shouldAnimate: boolean }>`
-
+export const AwardImageLoader = styled.div<{
+  $isLoaded: boolean;
+  $shouldAnimate: boolean;
+}>`
   position: absolute;
   top: 0;
   left: 0;
@@ -248,10 +235,12 @@ export const AwardImageLoader = styled.div<{ $isLoaded: boolean; $shouldAnimate:
   background: var(--subtext);
   z-index: 3;
 
-  ${props => props.$isLoaded && props.$shouldAnimate && css`
-    animation: ${imageLoaderSlideUp} 0.3s ease-out 0.15s forwards;
-
-  `}
+  ${(props) =>
+    props.$isLoaded &&
+    props.$shouldAnimate &&
+    css`
+      animation: ${imageLoaderSlideUp} 0.3s ease-out 0.15s forwards;
+    `}
   transform-origin: bottom;
 `;
 
@@ -275,9 +264,9 @@ export const AwardNameOverlay = styled.div`
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
   z-index: 4;
   border-radius: 0 12px 0 0;
-  
+
   &::after {
-    content: '';
+    content: "";
     position: absolute;
     bottom: -8px;
     right: 0;
@@ -287,9 +276,9 @@ export const AwardNameOverlay = styled.div`
     border-radius: 0 0 16px 0;
     transform: rotate(180deg);
   }
-  
+
   &::before {
-    content: '';
+    content: "";
     position: absolute;
     bottom: -8px;
     right: 8px;
@@ -298,7 +287,7 @@ export const AwardNameOverlay = styled.div`
     background: var(--background);
     border-radius: 0 0 16px 0;
   }
-  
+
   @media (max-width: 768px) {
     font-size: 1rem;
     padding: 0.6rem 1.5rem 0.6rem 1.2rem;
@@ -314,27 +303,41 @@ export const AwardDescription = styled.p`
   line-height: 1.6;
   border-radius: 0 0 16px 16px;
   font-weight: 500;
-  
+
   @media (max-width: 768px) {
     padding: 2.5rem 1.2rem 1.2rem;
     font-size: 1rem;
   }
-`
+`;
 // Animated versions for intersection observer
-export const AnimatedAwardsListContainer = styled(AwardsListContainer)<{ isVisible?: boolean }>`
-  opacity: ${props => props.isVisible ? 1 : 0};
-  transform: translateY(${props => props.isVisible ? '0' : '30px'});
-  transition: opacity 0.4s ease, transform 0.4s ease;
+export const AnimatedAwardsListContainer = styled(AwardsListContainer)<{
+  isVisible?: boolean;
+}>`
+  opacity: ${(props) => (props.isVisible ? 1 : 0)};
+  transform: translateY(${(props) => (props.isVisible ? "0" : "30px")});
+  transition:
+    opacity 0.4s ease,
+    transform 0.4s ease;
 `;
 
-export const AnimatedAwardItemContainer = styled(AwardItemContainer)<{ isVisible?: boolean; delay?: number }>`
-  opacity: ${props => props.isVisible ? 1 : 0};
-  transform: translateY(${props => props.isVisible ? '0' : '60px'});
-  transition: opacity 0.6s ease ${props => props.delay || 0}s, transform 0.6s ease ${props => props.delay || 0}s;
+export const AnimatedAwardItemContainer = styled(AwardItemContainer)<{
+  isVisible?: boolean;
+  delay?: number;
+}>`
+  opacity: ${(props) => (props.isVisible ? 1 : 0)};
+  transform: translateY(${(props) => (props.isVisible ? "0" : "60px")});
+  transition:
+    opacity 0.6s ease ${(props) => props.delay || 0}s,
+    transform 0.6s ease ${(props) => props.delay || 0}s;
 `;
 
-export const AnimatedMoreComingMessage = styled(MoreComingMessage)<{ isVisible?: boolean; delay?: number }>`
-  opacity: ${props => props.isVisible ? 1 : 0};
-  transform: translateY(${props => props.isVisible ? '0' : '40px'});
-  transition: opacity 0.4s ease ${props => props.delay || 0}s, transform 0.4s ease ${props => props.delay || 0}s;
-`; 
+export const AnimatedMoreComingMessage = styled(MoreComingMessage)<{
+  isVisible?: boolean;
+  delay?: number;
+}>`
+  opacity: ${(props) => (props.isVisible ? 1 : 0)};
+  transform: translateY(${(props) => (props.isVisible ? "0" : "40px")});
+  transition:
+    opacity 0.4s ease ${(props) => props.delay || 0}s,
+    transform 0.4s ease ${(props) => props.delay || 0}s;
+`;

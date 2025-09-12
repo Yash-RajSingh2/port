@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import styled, { keyframes, css } from 'styled-components';
+import React, { useState, useEffect } from "react";
+import styled, { keyframes, css } from "styled-components";
 
 const imageLoaderSlideUp = keyframes`
   from {
@@ -38,9 +38,12 @@ const ImageLoader = styled.div<{ $isLoaded: boolean; $shouldAnimate: boolean }>`
   height: 100%;
   background: var(--subtext);
   z-index: 3;
-  ${props => props.$isLoaded && props.$shouldAnimate && css`
-    animation: ${imageLoaderSlideUp} 0.3s ease-out 0.15s forwards;
-  `}
+  ${(props) =>
+    props.$isLoaded &&
+    props.$shouldAnimate &&
+    css`
+      animation: ${imageLoaderSlideUp} 0.3s ease-out 0.15s forwards;
+    `}
   transform-origin: bottom;
 `;
 
@@ -64,9 +67,9 @@ const NameOverlay = styled.div`
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
   z-index: 4;
   border-radius: 0 12px 0 0;
-  
+
   &::after {
-    content: '';
+    content: "";
     position: absolute;
     bottom: -8px;
     right: 0;
@@ -76,9 +79,9 @@ const NameOverlay = styled.div`
     border-radius: 0 0 16px 0;
     transform: rotate(180deg);
   }
-  
+
   &::before {
-    content: '';
+    content: "";
     position: absolute;
     bottom: -8px;
     right: 8px;
@@ -87,7 +90,7 @@ const NameOverlay = styled.div`
     background: var(--background);
     border-radius: 0 0 16px 0;
   }
-  
+
   @media (max-width: 768px) {
     font-size: 1rem;
     padding: 0.6rem 1.5rem 0.6rem 1.2rem;
@@ -105,7 +108,7 @@ export const AwardImageSection: React.FC<AwardImageSectionProps> = ({
   src,
   alt,
   name,
-  isVisible
+  isVisible,
 }) => {
   const [imageLoaded, setImageLoaded] = useState(false);
   const [shouldAnimateLoader, setShouldAnimateLoader] = useState(false);
@@ -128,19 +131,13 @@ export const AwardImageSection: React.FC<AwardImageSectionProps> = ({
   return (
     <ImageSection>
       <ImageContainer>
-        <ImageLoader 
-          $isLoaded={imageLoaded} 
+        <ImageLoader
+          $isLoaded={imageLoaded}
           $shouldAnimate={shouldAnimateLoader}
         />
-        <Image
-          src={src}
-          alt={alt}
-          onLoad={handleImageLoad}
-        />
-        <NameOverlay>
-          {name}
-        </NameOverlay>
+        <Image src={src} alt={alt} onLoad={handleImageLoad} />
+        <NameOverlay>{name}</NameOverlay>
       </ImageContainer>
     </ImageSection>
   );
-}; 
+};

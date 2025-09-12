@@ -1,8 +1,8 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from "react";
+import styled from "styled-components";
 
-export const Container = styled.section<{ 
-  minHeight?: string; 
+export const Container = styled.section<{
+  minHeight?: string;
   maxHeight?: string;
   topMargin?: string;
   padding?: string;
@@ -10,27 +10,34 @@ export const Container = styled.section<{
   isRelative?: boolean;
 }>`
   width: 100%;
-  min-height: ${props => props.minHeight || '50vh'};
-  ${props => props.maxHeight && `max-height: ${props.maxHeight};`}
-  margin-top: ${props => props.topMargin || '0'};
+  min-height: ${(props) => props.minHeight || "50vh"};
+  ${(props) => props.maxHeight && `max-height: ${props.maxHeight};`}
+  margin-top: ${(props) => props.topMargin || "0"};
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: ${props => props.padding || '0 2rem 2rem'};
-  ${props => props.isRelative && 'position: relative;'}
-  ${props => props.hasOverflow && 'overflow: hidden;'}
+  padding: ${(props) => props.padding || "0 2rem 2rem"};
+  ${(props) => props.isRelative && "position: relative;"}
+  ${(props) => props.hasOverflow && "overflow: hidden;"}
   background: var(--background);
+  @media (max-width: 500px) {
+    padding: 0;
+  }
 `;
 
-export const ContentWrapper = styled.div<{ flexDirection?: 'row' | 'column', alignItems?: 'center' | 'flex-start' , gap?: string }>`
+export const ContentWrapper = styled.div<{
+  flexDirection?: "row" | "column";
+  alignItems?: "center" | "flex-start";
+  gap?: string;
+}>`
   display: flex;
-  flex-direction: ${props => props.flexDirection || 'row'};
-  align-items: ${props => props.alignItems || 'center'};
-  gap: ${props => props.gap || '4rem'};
+  flex-direction: ${(props) => props.flexDirection || "row"};
+  align-items: ${(props) => props.alignItems || "center"};
+  gap: ${(props) => props.gap || "4rem"};
   max-width: 1200px;
   width: 100%;
-  overflow-x: hidden;
+  overflow: hidden;
 `;
 
 export const Button = styled.p`
@@ -55,25 +62,47 @@ export const Button = styled.p`
     outline: none;
     box-shadow: 0 0 0 2px var(--fill);
   }
+  @media (max-width: 500px) {
+    padding: 8px 24px;
+    font-size: 0.75rem;
+    margin-top: 1rem;
+    border-width: 1.5px;
+  }
 `;
 
 // Animated versions for intersection observer
 export const AnimatedContainer = styled(Container)<{ isVisible?: boolean }>`
-  opacity: ${props => props.isVisible ? 1 : 0};
-  transform: translateY(${props => props.isVisible ? '0' : '50px'});
-  transition: opacity 0.8s ease, transform 0.8s ease;
+  opacity: ${(props) => (props.isVisible ? 1 : 0)};
+  transform: translateY(${(props) => (props.isVisible ? "0" : "50px")});
+  transition:
+    opacity 0.8s ease,
+    transform 0.8s ease;
 `;
 
-export const AnimatedContentWrapper = styled(ContentWrapper)<{ isVisible?: boolean, delay?: number }>`
-  opacity: ${props => props.isVisible ? 1 : 0};
-  transform: translateY(${props => props.isVisible ? '0' : '30px'});
-  transition: opacity 0.6s ease ${props => props.delay || 0}s, transform 0.6s ease ${props => props.delay || 0}s;
+export const AnimatedContentWrapper = styled(ContentWrapper)<{
+  isVisible?: boolean;
+  delay?: number;
+}>`
+  opacity: ${(props) => (props.isVisible ? 1 : 0)};
+  transform: translateY(${(props) => (props.isVisible ? "0" : "30px")});
+  transition:
+    opacity 0.6s ease ${(props) => props.delay || 0}s,
+    transform 0.6s ease ${(props) => props.delay || 0}s;
 `;
 
-export const AnimatedButton = styled(Button)<{ isVisible?: boolean, delay?: number }>`
-  opacity: ${props => props.isVisible ? 1 : 0};
-  transform: translateY(${props => props.isVisible ? '0' : '20px'});
-  transition: all 0.5s ease ${props => props.delay || 0}s;
+export const AnimatedButton = styled(Button)<{
+  isVisible?: boolean;
+  delay?: number;
+}>`
+  opacity: ${(props) => (props.isVisible ? 1 : 0)};
+  transform: translateY(${(props) => (props.isVisible ? "0" : "20px")});
+  transition: all 0.5s ease ${(props) => props.delay || 0}s;
+  @media (max-width: 500px) {
+    padding: 8px 24px;
+    font-size: 0.75rem;
+    margin-top: 1rem;
+    border-width: 1.5px;
+  }
 `;
 
 // Reusable Circles component for decorative backgrounds
@@ -84,15 +113,15 @@ interface CirclesProps {
   height?: string;
 }
 
-export const Circles: React.FC<CirclesProps> = ({ 
-  top = "-8%", 
-  left = "-40%", 
-  width = "40%", 
-  height = "10%" 
+export const Circles: React.FC<CirclesProps> = ({
+  top = "-8%",
+  left = "-40%",
+  width = "40%",
+  height = "10%",
 }) => {
   // Generate a unique ID using timestamp and random number to avoid conflicts
   const patternId = `circle-dots-${Date.now()}-${Math.floor(Math.random() * 1000)}`;
-  
+
   return (
     <div
       style={{
@@ -121,4 +150,4 @@ export const Circles: React.FC<CirclesProps> = ({
       </svg>
     </div>
   );
-}; 
+};

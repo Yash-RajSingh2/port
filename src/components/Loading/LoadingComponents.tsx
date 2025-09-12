@@ -1,5 +1,5 @@
-import styled, { keyframes } from 'styled-components';
-import { Link } from 'react-router-dom';
+import styled, { keyframes } from "styled-components";
+import { Link } from "react-router-dom";
 
 interface LoadingContainerProps {
   $isVisible: boolean;
@@ -12,15 +12,17 @@ export const LoadingContainer = styled.div<LoadingContainerProps>`
   left: 20px;
   right: 20px;
   width: calc(100vw - 40px);
-  height: ${({ $isVisible }) => $isVisible ? 'calc(100vh - 40px)' : '0'};
+  height: ${({ $isVisible }) => ($isVisible ? "calc(100vh - 40px)" : "0")};
   background-color: var(--fill);
   z-index: 2000;
-  transition: height ${({ $isVisible }) => $isVisible ? '0.4s' : '0.2s'} cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transition: height ${({ $isVisible }) => ($isVisible ? "0.4s" : "0.2s")}
+    cubic-bezier(0.25, 0.46, 0.45, 0.94);
   display: flex;
   align-items: center;
-  justify-content: ${({ $isLoading }) => $isLoading ? 'center' : 'flex-start'};
+  justify-content: ${({ $isLoading }) =>
+    $isLoading ? "center" : "flex-start"};
   overflow: hidden;
-  pointer-events: ${({ $isVisible }) => $isVisible ? 'auto' : 'none'};
+  pointer-events: ${({ $isVisible }) => ($isVisible ? "auto" : "none")};
 `;
 
 const slideFromRight = keyframes`
@@ -100,6 +102,18 @@ export const MenuContent = styled.nav`
   width: 100%;
   max-width: 600px;
   padding: 2rem;
+
+  @media (min-width: 700px) and (max-width: 1000px) {
+    width: 70%;
+  }
+
+  @media (min-width: 600px) and (max-width: 700px) {
+    width: 70%;
+  }
+  @media (max-width: 500px) {
+    gap: 0;
+    margin-top: -10rem;
+  }
 `;
 
 export const MenuItem = styled.div`
@@ -124,6 +138,9 @@ export const MenuItem = styled.div`
   &:nth-child(5) {
     animation-delay: 1.65s;
   }
+  @media (max-width: 500px) {
+    margin-bottom: 1.25rem;
+  }
 `;
 
 export const MenuDescription = styled.span`
@@ -135,6 +152,10 @@ export const MenuDescription = styled.span`
   letter-spacing: 1px;
   width: max-content;
   padding-bottom: 1rem;
+
+  @media (max-width: 1000px) {
+    display: none;
+  }
 `;
 
 export const MenuLink = styled(Link)`
@@ -146,11 +167,22 @@ export const MenuLink = styled(Link)`
   line-height: 1.25;
   width: 360px;
   transition: all 0.2s ease;
+
   &:hover {
     color: var(--bg);
     -webkit-text-stroke: 0.5px var(--text);
-    text-shadow: -0.5px -0.5px 0 var(--text), 0.5px -0.5px 0 var(--text),
-      -0.5px 0.5px 0 var(--text), 0.5px 0.5px 0 var(--text);
+    text-shadow:
+      -0.5px -0.5px 0 var(--text),
+      0.5px -0.5px 0 var(--text),
+      -0.5px 0.5px 0 var(--text),
+      0.5px 0.5px 0 var(--text);
+  }
+
+  @media (max-width: 500px) {
+    font-size: 1.5rem;
+  }
+  @media (max-width: 1000px) {
+    width: unset;
   }
 `;
 
@@ -204,9 +236,10 @@ export const AnimatedHeaderContainer = styled.div`
     animation: ${lineAnimation} 0.4s ease-out forwards;
     animation-delay: 0.2s;
   }
+  @media (max-width: 500px) {
+    gap: 0.5rem;
+  }
 `;
-
-
 
 export const SocialIcon = styled.img`
   display: block;
@@ -235,6 +268,8 @@ export const SocialIcon = styled.img`
   &:nth-child(4) {
     animation-delay: 1.1s;
   }
-`;
 
- 
+  @media (max-width: 500px) {
+    width: 40px;
+  }
+`;

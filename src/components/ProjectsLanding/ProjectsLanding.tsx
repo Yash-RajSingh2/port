@@ -1,25 +1,33 @@
-import React from 'react';
-import { Container, AnimatedContentWrapper } from '@components/Common/CommonComponents';
-import { SectionTitle } from '@components/Common/SectionComponents';
-import { AnimatedScrollText } from '@components/Common/AnimatedScrollText';
+import React from "react";
+import {
+  Container,
+  AnimatedContentWrapper,
+} from "@components/Common/CommonComponents";
+import { SectionTitle } from "@components/Common/SectionComponents";
+import { AnimatedScrollText } from "@components/Common/AnimatedScrollText";
 import { ProjectsText } from "@/routes/pages/projects/ProjectsComponents";
-import { Circles } from '@components/Common/CommonComponents';
-import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
+import { Circles } from "@components/Common/CommonComponents";
+import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
 
 const ProjectsLanding: React.FC = () => {
   const { elementRef, isIntersecting } = useIntersectionObserver({
     threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px',
+    rootMargin: "0px 0px -50px 0px",
   });
 
   return (
     <>
       <Container minHeight="90vh" topMargin="3rem" ref={elementRef}>
-        <AnimatedContentWrapper flexDirection="column" alignItems="flex-start" gap="2rem" isVisible={isIntersecting}>
+        <AnimatedContentWrapper
+          flexDirection="column"
+          alignItems="flex-start"
+          gap="2rem"
+          isVisible={isIntersecting}
+        >
           <SectionTitle isVisible={isIntersecting} alignment="left">
-            My Projects<span style={{ color: 'var(--subtext)' }}>.</span>
+            My Projects<span style={{ color: "var(--subtext)" }}>.</span>
           </SectionTitle>
-          <Circles top="15%" left="60%" width="45%" height="70%"/>
+          <Circles top="15%" left="60%" width="45%" height="70%" />
           <ProjectsText>
             Explore a collection of projects that highlight my{" "}
             <b>frontend expertise</b> and passion for crafting engaging digital
@@ -35,4 +43,4 @@ const ProjectsLanding: React.FC = () => {
   );
 };
 
-export default ProjectsLanding; 
+export default ProjectsLanding;

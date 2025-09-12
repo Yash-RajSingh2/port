@@ -1,10 +1,8 @@
-import styled from 'styled-components';
-
-
+import styled from "styled-components";
 
 export const TextSection = styled.div`
   font-family: Bitter;
-  
+
   p {
     font-size: 5rem;
     color: var(--text);
@@ -14,8 +12,25 @@ export const TextSection = styled.div`
     opacity: 0;
     transform: translateY(30px);
     animation: fadeSlideUp 0.8s ease-out forwards;
+    @media (max-width: 1400px) {
+      font-size: 3rem;
+    }
+    @media (max-width: 1000px) {
+      text-align: center;
+    }
+    @media (min-width: 600px) and (max-width: 750px) {
+      font-size: 2.5rem;
+    }
+    @media (max-width: 599px) {
+      font-size: 2rem;
+      line-height: 1.2;
+    }
+    @media (max-width: 500px) {
+      max-width: 95%;
+      line-height: 1.5;
+    }
   }
-  
+
   span {
     font-size: 2.4rem;
     color: var(--text);
@@ -25,6 +40,12 @@ export const TextSection = styled.div`
     opacity: 0;
     transform: translateY(30px);
     animation: fadeSlideUp 0.8s ease-out 0.4s forwards;
+    @media (max-width: 1400px) {
+      font-size: 2.5rem;
+    }
+    @media (max-width: 1000px) {
+      display: none;
+    }
   }
 
   @keyframes fadeSlideUp {
@@ -73,7 +94,16 @@ export const ProfileImage = styled.img`
       transform: scale(1);
     }
   }
-`; 
+  @media (max-width: 1000px) {
+    width: 50%;
+  }
+  @media (min-width: 600px) and (max-width: 750px) {
+    width: 60%;
+  }
+  @media (max-width: 599px) {
+    width: 80%;
+  }
+`;
 
 export const ScrollSection = styled.div`
   align-self: flex-start;
@@ -91,6 +121,12 @@ export const ScrollSection = styled.div`
     top: calc(100% + 25px);
     background: var(--text);
     opacity: 0.45;
+  }
+
+  @media (max-width: 1000px) {
+    &::after {
+      height: 20vh !important;
+    }
   }
 `;
 
@@ -120,18 +156,37 @@ export const BouncingLetter = styled.span<{ delay: number }>`
   }
 `;
 
+const DiagonalLinesContainer = styled.div`
+  position: absolute;
+  width: 50vw;
+  height: 20rem;
+  z-index: -1;
+  pointer-events: none;
+  margin-left: -10rem;
+
+  @media (max-width: 1400px) {
+    margin-left: 12rem;
+    height: 17rem;
+    width: 70vw;
+  }
+
+  @media (max-width: 1224px) {
+    height: 10rem;
+  }
+  @media (max-width: 1000px) {
+    margin-left: 0;
+  }
+  @media (min-width: 600px) and (max-width: 750px) {
+    height: 8rem;
+  }
+  // @media (max-width: 500px) {
+  //   width: 100vw;
+  // }
+`;
+
 export const DiagonalLines: React.FC = () => {
   return (
-    <div
-      style={{
-        position: "absolute",
-        width: "50vw",
-        height: "20rem",
-        zIndex: -1,
-        pointerEvents: "none", 
-        marginLeft: "-10rem",
-      }}
-    >
+    <DiagonalLinesContainer>
       <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
         <defs>
           <pattern
@@ -154,6 +209,6 @@ export const DiagonalLines: React.FC = () => {
 
         <rect width="100%" height="100%" fill="url(#diagonal-stripes)" />
       </svg>
-    </div>
+    </DiagonalLinesContainer>
   );
 };

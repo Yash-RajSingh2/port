@@ -1,4 +1,4 @@
-import styled, { keyframes, css } from 'styled-components';
+import styled, { keyframes, css } from "styled-components";
 
 export const ContactContainer = styled.section`
   width: 65%;
@@ -29,9 +29,9 @@ export const ContactTitle = styled.h2`
   color: var(--text);
   margin: 0;
   position: relative;
-  
+
   &::after {
-    content: '';
+    content: "";
     position: absolute;
     bottom: -10px;
     left: 50%;
@@ -79,36 +79,57 @@ export const ContactButton = styled.button`
 `;
 
 // Animated versions for intersection observer
-export const AnimatedContactContainer = styled(ContactContainer)<{ isVisible?: boolean }>`
-  opacity: ${props => props.isVisible ? 1 : 0};
-  transform: translateY(${props => props.isVisible ? '0' : '40px'});
-  transition: opacity 0.8s ease, transform 0.8s ease;
+export const AnimatedContactContainer = styled(ContactContainer)<{
+  isVisible?: boolean;
+}>`
+  opacity: ${(props) => (props.isVisible ? 1 : 0)};
+  transform: translateY(${(props) => (props.isVisible ? "0" : "40px")});
+  transition:
+    opacity 0.8s ease,
+    transform 0.8s ease;
 `;
 
-export const AnimatedContactTitle = styled(ContactTitle)<{ isVisible?: boolean; delay?: number }>`
-  opacity: ${props => props.isVisible ? 1 : 0};
-  transform: translateY(${props => props.isVisible ? '0' : '30px'});
-  transition: opacity 0.6s ease ${props => props.delay || 0}s, transform 0.6s ease ${props => props.delay || 0}s;
-  
+export const AnimatedContactTitle = styled(ContactTitle)<{
+  isVisible?: boolean;
+  delay?: number;
+}>`
+  opacity: ${(props) => (props.isVisible ? 1 : 0)};
+  transform: translateY(${(props) => (props.isVisible ? "0" : "30px")});
+  transition:
+    opacity 0.6s ease ${(props) => props.delay || 0}s,
+    transform 0.6s ease ${(props) => props.delay || 0}s;
+
   &::after {
-    ${props => props.isVisible ? css`
-      animation: ${borderGrow} 0.6s ease-out ${(props.delay || 0) + 0.4}s forwards;
-    ` : css`
-      animation: none;
-    `}
+    ${(props) =>
+      props.isVisible
+        ? css`
+            animation: ${borderGrow} 0.6s ease-out ${(props.delay || 0) + 0.4}s
+              forwards;
+          `
+        : css`
+            animation: none;
+          `}
   }
 `;
 
-export const AnimatedContactDescription = styled(ContactDescription)<{ isVisible?: boolean; delay?: number }>`
-  opacity: ${props => props.isVisible ? 1 : 0};
-  transform: translateY(${props => props.isVisible ? '0' : '30px'});
-  transition: opacity 0.6s ease ${props => props.delay || 0}s, transform 0.6s ease ${props => props.delay || 0}s;
+export const AnimatedContactDescription = styled(ContactDescription)<{
+  isVisible?: boolean;
+  delay?: number;
+}>`
+  opacity: ${(props) => (props.isVisible ? 1 : 0)};
+  transform: translateY(${(props) => (props.isVisible ? "0" : "30px")});
+  transition:
+    opacity 0.6s ease ${(props) => props.delay || 0}s,
+    transform 0.6s ease ${(props) => props.delay || 0}s;
 `;
 
-export const AnimatedContactButton = styled(ContactButton)<{ isVisible?: boolean; delay?: number }>`
-  opacity: ${props => props.isVisible ? 1 : 0};
-  transform: translateY(${props => props.isVisible ? '0' : '30px'});
-  transition: all 0.5s ease ${props => props.delay || 0}s;
+export const AnimatedContactButton = styled(ContactButton)<{
+  isVisible?: boolean;
+  delay?: number;
+}>`
+  opacity: ${(props) => (props.isVisible ? 1 : 0)};
+  transform: translateY(${(props) => (props.isVisible ? "0" : "30px")});
+  transition: all 0.5s ease ${(props) => props.delay || 0}s;
 `;
 
-// Circles component has been moved to CommonComponents.tsx for better reusability 
+// Circles component has been moved to CommonComponents.tsx for better reusability

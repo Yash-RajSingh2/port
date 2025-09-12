@@ -1,11 +1,11 @@
-import React, { useEffect } from 'react';
-import type { LayoutProps } from './Layout.interfaces';
-import { LayoutContainer, MainContent } from './LayoutComponents';
-import Navbar from '@components/Navbar/Navbar';
-import Loading from '@components/Loading/Loading';
-import { useLocation } from 'react-router-dom';
-import { useAppDispatch } from '@context/reducer/store';
-import { setLoading } from '@context/reducer/reducer';
+import React, { useEffect } from "react";
+import type { LayoutProps } from "./Layout.interfaces";
+import { LayoutContainer, MainContent } from "./LayoutComponents";
+import Navbar from "@components/Navbar/Navbar";
+import Loading from "@components/Loading/Loading";
+import { useLocation } from "react-router-dom";
+import { useAppDispatch } from "@context/reducer/store";
+import { setLoading } from "@context/reducer/reducer";
 
 const Layout: React.FC<LayoutProps> = ({ children }) => {
   const dispatch = useAppDispatch();
@@ -27,7 +27,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
     window.scrollTo({
       top: 0,
       left: 0,
-      behavior: 'instant'
+      behavior: "instant",
     });
   }, [location.pathname]);
 
@@ -36,12 +36,10 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
       <Loading />
       <LayoutContainer>
         <Navbar />
-        <MainContent>
-          {children}
-        </MainContent>
+        <MainContent>{children}</MainContent>
       </LayoutContainer>
     </>
   );
 };
 
-export default Layout; 
+export default Layout;

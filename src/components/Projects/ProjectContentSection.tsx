@@ -1,12 +1,12 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from "react";
+import styled from "styled-components";
 
 const ContentSection = styled.div`
   width: 55%;
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  
+
   @media (max-width: 768px) {
     width: 100%;
     text-align: center;
@@ -34,7 +34,7 @@ const Technologies = styled.div`
   flex-wrap: wrap;
   gap: 0.5rem;
   margin-top: 0.5rem;
-  
+
   @media (max-width: 768px) {
     justify-content: center;
   }
@@ -53,7 +53,7 @@ const Links = styled.div`
   display: flex;
   gap: 1rem;
   margin-top: 1rem;
-  
+
   @media (max-width: 768px) {
     justify-content: center;
   }
@@ -67,7 +67,7 @@ const Link = styled.a`
   border: 2px solid var(--subtext);
   border-radius: 8px;
   transition: all 0.3s ease;
-  
+
   &:hover {
     background: var(--subtext);
     color: var(--bg);
@@ -87,13 +87,13 @@ export const ProjectContentSection: React.FC<ProjectContentSectionProps> = ({
   description,
   technologies,
   liveUrl,
-  githubUrl
+  githubUrl,
 }) => {
   return (
     <ContentSection>
       <Title>{title}</Title>
       <Description>{description}</Description>
-      
+
       {technologies && technologies.length > 0 && (
         <Technologies>
           {technologies.map((tech, index) => (
@@ -101,7 +101,7 @@ export const ProjectContentSection: React.FC<ProjectContentSectionProps> = ({
           ))}
         </Technologies>
       )}
-      
+
       <Links>
         {liveUrl && (
           <Link href={liveUrl} target="_blank" rel="noopener noreferrer">
@@ -116,4 +116,4 @@ export const ProjectContentSection: React.FC<ProjectContentSectionProps> = ({
       </Links>
     </ContentSection>
   );
-}; 
+};

@@ -25,4 +25,4 @@ export const menuItems: MenuItem[] = [
     label: "About",
     description: "Learn more about me outside of work",
   },
-]; 
+];

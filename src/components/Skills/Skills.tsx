@@ -1,14 +1,20 @@
-import React, { useMemo } from 'react';
-import { ContentWrapper, Container } from '@/components/Common/CommonComponents';
-import { SectionTitle } from '@/components/Common/SectionComponents';
-import { SkillCard, SkillsCloudContainer } from '@/routes/pages/about/AboutComponents';
-import { skills } from '@/data/skills';
-import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
+import React, { useMemo } from "react";
+import {
+  ContentWrapper,
+  Container,
+} from "@/components/Common/CommonComponents";
+import { SectionTitle } from "@/components/Common/SectionComponents";
+import {
+  SkillCard,
+  SkillsCloudContainer,
+} from "@/routes/pages/about/AboutComponents";
+import { skills } from "@/data/skills";
+import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
 
 const Skills: React.FC = () => {
   const { elementRef, isIntersecting } = useIntersectionObserver({
     threshold: 0.2,
-    rootMargin: '0px 0px -100px 0px',
+    rootMargin: "0px 0px -100px 0px",
   });
 
   // Generate random positions for skills (memoized to prevent re-positioning on re-renders)
@@ -19,15 +25,15 @@ const Skills: React.FC = () => {
       const radius = 20 + (index % 3) * 15; // Varying distances from center
       const centerX = 50;
       const centerY = 50;
-      
+
       // Convert polar to cartesian coordinates
       const x = centerX + radius * Math.cos((angle * Math.PI) / 180);
       const y = centerY + radius * Math.sin((angle * Math.PI) / 180);
-      
+
       // Ensure positions stay within bounds
       const boundedX = Math.max(5, Math.min(85, x));
       const boundedY = Math.max(10, Math.min(80, y));
-      
+
       return {
         top: `${boundedY}%`,
         left: `${boundedX}%`,
@@ -37,13 +43,13 @@ const Skills: React.FC = () => {
   }, []);
 
   return (
-    <Container 
-      minHeight="80vh" 
-      maxHeight="85vh" 
-      padding="4rem 2rem" 
-      isRelative 
-      hasOverflow 
-      ref={elementRef} 
+    <Container
+      minHeight="80vh"
+      maxHeight="85vh"
+      padding="4rem 2rem"
+      isRelative
+      hasOverflow
+      ref={elementRef}
       topMargin="15rem"
     >
       <ContentWrapper flexDirection="column" alignItems="flex-start" gap="4rem">
@@ -68,4 +74,4 @@ const Skills: React.FC = () => {
   );
 };
 
-export default Skills; 
+export default Skills;

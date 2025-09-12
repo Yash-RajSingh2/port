@@ -1,6 +1,6 @@
-import  impactAnalyticsLogo  from '@assets/IaLogo.svg';
-import  switchLabsLogo from "@assets/switchlabs.webp";
-import aceLogo  from '@assets/AceLogo.svg';
+import impactAnalyticsLogo from "@assets/IaLogo.svg";
+import switchLabsLogo from "@assets/switchlabs.webp";
+import aceLogo from "@assets/AceLogo.svg";
 
 export interface ExperienceData {
   company: string;
@@ -55,7 +55,7 @@ export const experiences: ExperienceData[] = [
     ],
   },
   {
-    company: "ACE- Association for Computer Enthusiasts",
+    company: "ACE- Assn. for Computer Enthusiasts",
     jobTitle: "Web development team core member",
     period: "February 15th 2021 – December 14th 2022",
     imageSrc: aceLogo,
@@ -65,4 +65,4 @@ export const experiences: ExperienceData[] = [
       "Worked on group projects within the society, collaborating on design, development, and deployment tasks.",
     ],
   },
-]; 
+];

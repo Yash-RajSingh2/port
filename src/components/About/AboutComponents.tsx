@@ -1,15 +1,15 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const AboutTitle = styled.h2`
   font-family: Bitter;
-  font-size: 60px;
+  font-size: 3.75rem;
   color: var(--text);
   position: relative;
   opacity: 0;
   transform: translateY(30px);
   animation: fadeSlideUp 0.8s ease-out forwards;
   &::after {
-    content: '';
+    content: "";
     position: absolute;
     bottom: -10px;
     left: 0;
@@ -59,4 +59,15 @@ export const AboutText = styled.p`
   .bold {
     font-weight: bold;
   }
-`; 
+  @media (max-width: 1000px) {
+    max-width: 90%;
+    margin-top: 1.5rem;
+    font-size: 1.125rem;
+  }
+  @media (max-width: 500px) {
+    max-width: 95%;
+    margin-top: 1.5rem;
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+`;

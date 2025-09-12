@@ -1,18 +1,18 @@
-import React from 'react';
-import { useNavigate } from 'react-router-dom';
-import Layout from '@components/Layout/Layout';
-import Landing from '@components/Landing/Landing';
-import About from '@components/About/About';
-import Work from '@components/Work/Work';
-import { MoreComingMessage } from '@components/Common/MoreComingMessage';
-import { Container } from '@components/Common/CommonComponents';
-import { experiences } from '@/data/experience';
+import React from "react";
+import { useNavigate } from "react-router-dom";
+import Layout from "@components/Layout/Layout";
+import Landing from "@components/Landing/Landing";
+import About from "@components/About/About";
+import Work from "@components/Work/Work";
+import { MoreComingMessage } from "@components/Common/MoreComingMessage";
+import { Container } from "@components/Common/CommonComponents";
+import { experiences } from "@/data/experience";
 
 const Homepage: React.FC = () => {
   const navigate = useNavigate();
 
   const handleExploreProjects = () => {
-    navigate('/projects');
+    navigate("/projects");
   };
 
   return (
@@ -21,7 +21,7 @@ const Homepage: React.FC = () => {
       <About />
       <Work experiences={experiences} />
       <Container minHeight="30vh" padding="2rem">
-        <MoreComingMessage 
+        <MoreComingMessage
           message="Now let's explore my projects"
           buttonText="View Projects"
           onButtonClick={handleExploreProjects}
@@ -32,4 +32,4 @@ const Homepage: React.FC = () => {
   );
 };
 
-export default Homepage; 
+export default Homepage;

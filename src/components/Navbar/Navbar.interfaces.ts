@@ -4,4 +4,4 @@ export interface NavbarProps {
 
 export interface NavbarState {
   isOpen: boolean;
-} 
+}

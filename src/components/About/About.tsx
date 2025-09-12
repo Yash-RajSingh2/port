@@ -1,14 +1,18 @@
-import React from 'react';
+import React from "react";
 import { AboutText } from "./AboutComponents";
-import { Container, AnimatedContentWrapper, AnimatedButton } from "@components/Common/CommonComponents";
+import {
+  Container,
+  AnimatedContentWrapper,
+  AnimatedButton,
+} from "@components/Common/CommonComponents";
 import { SectionTitle } from "@components/Common/SectionComponents";
-import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
-import Resume from '@assets/Yash-Raj-Singh-Resume.pdf';
+import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
+import Resume from "@assets/Yash-Raj-Singh-Resume.pdf";
 
 const About: React.FC = () => {
   const { elementRef, isIntersecting } = useIntersectionObserver({
     threshold: 0.2,
-    rootMargin: '0px 0px -100px 0px',
+    rootMargin: "0px 0px -100px 0px",
   });
 
   return (
@@ -42,4 +46,4 @@ const About: React.FC = () => {
   );
 };
 
-export default About; 
+export default About;

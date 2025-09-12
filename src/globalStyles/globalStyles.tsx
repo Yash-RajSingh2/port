@@ -2,7 +2,7 @@ import { createGlobalStyle } from "styled-components";
 import { themes } from "./themes";
 
 // Get default theme values
-const defaultTheme = themes['/'];
+const defaultTheme = themes["/"];
 
 // Global styles
 export const GlobalStyles = createGlobalStyle<{ $lockScroll?: boolean }>`
@@ -13,12 +13,12 @@ export const GlobalStyles = createGlobalStyle<{ $lockScroll?: boolean }>`
     scrollbar-width: none;
   }
      html{
-    --bg: ${defaultTheme['--bg']};
-    --line: ${defaultTheme['--line']};
-    --fill: ${defaultTheme['--fill']};
-    --text: ${defaultTheme['--text']};
-    --subtext: ${defaultTheme['--subtext']};
-    --duo: ${defaultTheme['--duo']};
+    --bg: ${defaultTheme["--bg"]};
+    --line: ${defaultTheme["--line"]};
+    --fill: ${defaultTheme["--fill"]};
+    --text: ${defaultTheme["--text"]};
+    --subtext: ${defaultTheme["--subtext"]};
+    --duo: ${defaultTheme["--duo"]};
     font-family: "Bitter", serif;
   }
     body{
@@ -67,9 +67,9 @@ export const GlobalStyles = createGlobalStyle<{ $lockScroll?: boolean }>`
 
   /* Scroll locking driven by prop */
   html, body {
-    overflow: ${({ $lockScroll }) => ($lockScroll ? 'hidden' : 'auto')};
-    overscroll-behavior: ${({ $lockScroll }) => ($lockScroll ? 'contain' : 'auto')};
-    touch-action: ${({ $lockScroll }) => ($lockScroll ? 'none' : 'auto')};
+    overflow: ${({ $lockScroll }) => ($lockScroll ? "hidden" : "auto")};
+    overscroll-behavior: ${({ $lockScroll }) => ($lockScroll ? "contain" : "auto")};
+    touch-action: ${({ $lockScroll }) => ($lockScroll ? "none" : "auto")};
   }
 `;
 

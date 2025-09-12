@@ -1,24 +1,23 @@
-import React from 'react';
-import { TextSection, ImageSection, ProfileImage, DiagonalLines } from './LandingComponents';
-import meImage from '@assets/me.png';
+import React from "react";
+import {
+  TextSection,
+  ImageSection,
+  ProfileImage,
+  DiagonalLines,
+} from "./LandingComponents";
+import meImage from "@assets/me.png";
+import "./ProfileSection.css";
 
-interface ProfileSectionProps {
-  name?: string;
-  title?: string;
-}
-
-export const ProfileSection: React.FC<ProfileSectionProps> = ({
-  name = "Yash",
-  title = "Software Engineer"
-}) => {
+export const ProfileSection: React.FC = () => {
   return (
     <>
       <TextSection>
         <p>
-          Hi, my <br />name is <b>{name} </b>.
+          Hi, my <br className="responsive-break" />
+          name is <b>Yash </b>.
         </p>
         <span>
-          I'm a <b>{title}</b>
+          I'm a <b>Software Engineer</b>
         </span>
       </TextSection>
       <ImageSection>
@@ -27,4 +26,4 @@ export const ProfileSection: React.FC<ProfileSectionProps> = ({
       </ImageSection>
     </>
   );
-}; 
+};

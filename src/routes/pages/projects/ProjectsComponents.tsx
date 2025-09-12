@@ -1,7 +1,7 @@
-import styled, { keyframes, css } from 'styled-components';
-import { AboutTitle, AboutText } from '@components/About/AboutComponents';
-import { ScrollSection } from '@components/Landing/LandingComponents';
-import { Container } from '@components/Common/CommonComponents';
+import styled, { keyframes, css } from "styled-components";
+import { AboutTitle, AboutText } from "@components/About/AboutComponents";
+import { ScrollSection } from "@components/Landing/LandingComponents";
+import { Container } from "@components/Common/CommonComponents";
 
 export const ProjectsContainer = styled(Container)`
   margin-top: 3rem; /* Add margin-top to the container */
@@ -9,7 +9,7 @@ export const ProjectsContainer = styled(Container)`
 `;
 
 export const ProjectsTitle = styled(AboutTitle)`
-  span{
+  span {
     color: var(--subtext);
   }
   &::after {
@@ -30,7 +30,6 @@ export const ProjectsText = styled(AboutText)`
 export const ProjectsScrollSection = styled(ScrollSection)`
   margin-top: 4rem;
 `;
-
 
 const imageLoaderSlideUp = keyframes`
   from {
@@ -90,7 +89,10 @@ export const ProjectImageContainer = styled.div`
   }
 `;
 
-export const ProjectImageLoader = styled.div<{ $isLoaded: boolean; $shouldAnimate: boolean }>`
+export const ProjectImageLoader = styled.div<{
+  $isLoaded: boolean;
+  $shouldAnimate: boolean;
+}>`
   position: absolute;
   top: 0;
   left: 0;
@@ -98,9 +100,12 @@ export const ProjectImageLoader = styled.div<{ $isLoaded: boolean; $shouldAnimat
   height: 100%;
   background: var(--subtext);
   z-index: 2;
-  ${props => props.$isLoaded && props.$shouldAnimate && css`
-    animation: ${imageLoaderSlideUp} 0.3s ease-out 0.1s forwards;
-  `}
+  ${(props) =>
+    props.$isLoaded &&
+    props.$shouldAnimate &&
+    css`
+      animation: ${imageLoaderSlideUp} 0.3s ease-out 0.1s forwards;
+    `}
   transform-origin: bottom;
 `;
 
@@ -110,7 +115,9 @@ export const ProjectImage = styled.img`
   aspect-ratio: 16/9;
   object-fit: center;
   border-radius: 12px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
 `;
 
 export const ProjectContentSection = styled.div`
@@ -118,7 +125,7 @@ export const ProjectContentSection = styled.div`
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  
+
   @media (max-width: 768px) {
     width: 100%;
     text-align: center;
@@ -146,7 +153,7 @@ export const ProjectTechnologies = styled.div`
   flex-wrap: wrap;
   gap: 0.5rem;
   margin-top: 0.5rem;
-  
+
   @media (max-width: 768px) {
     justify-content: center;
   }
@@ -165,7 +172,7 @@ export const ProjectLinks = styled.div`
   display: flex;
   gap: 1rem;
   margin-top: 1rem;
-  
+
   @media (max-width: 768px) {
     justify-content: center;
   }
@@ -179,7 +186,7 @@ export const ProjectLink = styled.a`
   border: 2px solid var(--subtext);
   border-radius: 8px;
   transition: all 0.3s ease;
-  
+
   &:hover {
     background: var(--subtext);
     color: var(--bg);
@@ -187,14 +194,23 @@ export const ProjectLink = styled.a`
 `;
 
 // Animated versions for intersection observer
-export const AnimatedProjectItemContainer = styled(ProjectItemContainer)<{ isVisible?: boolean; delay?: number }>`
-  opacity: ${props => props.isVisible ? 1 : 0};
-  transform: translateY(${props => props.isVisible ? '0' : '40px'});
-  transition: opacity 0.6s ease ${props => props.delay || 0}s, transform 0.6s ease ${props => props.delay || 0}s;
+export const AnimatedProjectItemContainer = styled(ProjectItemContainer)<{
+  isVisible?: boolean;
+  delay?: number;
+}>`
+  opacity: ${(props) => (props.isVisible ? 1 : 0)};
+  transform: translateY(${(props) => (props.isVisible ? "0" : "40px")});
+  transition:
+    opacity 0.6s ease ${(props) => props.delay || 0}s,
+    transform 0.6s ease ${(props) => props.delay || 0}s;
 `;
 
-export const AnimatedProjectsListContainer = styled(ProjectsListContainer)<{ isVisible?: boolean }>`
-  opacity: ${props => props.isVisible ? 1 : 0};
-  transform: translateY(${props => props.isVisible ? '0' : '30px'});
-  transition: opacity 0.6s ease, transform 0.6s ease;
+export const AnimatedProjectsListContainer = styled(ProjectsListContainer)<{
+  isVisible?: boolean;
+}>`
+  opacity: ${(props) => (props.isVisible ? 1 : 0)};
+  transform: translateY(${(props) => (props.isVisible ? "0" : "30px")});
+  transition:
+    opacity 0.6s ease,
+    transform 0.6s ease;
 `;

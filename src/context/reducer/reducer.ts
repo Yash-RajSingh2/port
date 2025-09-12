@@ -1,5 +1,5 @@
-import { createSlice } from '@reduxjs/toolkit';
-import type { PayloadAction } from '@reduxjs/toolkit';
+import { createSlice } from "@reduxjs/toolkit";
+import type { PayloadAction } from "@reduxjs/toolkit";
 
 export interface AppState {
   isLoading: boolean;
@@ -12,7 +12,7 @@ const initialState: AppState = {
 };
 
 const appSlice = createSlice({
-  name: 'app',
+  name: "app",
   initialState,
   reducers: {
     setLoading: (state, action: PayloadAction<boolean>) => {
@@ -24,9 +24,6 @@ const appSlice = createSlice({
   },
 });
 
-export const {
-  setLoading,
-  setMenuOpen,
-} = appSlice.actions;
+export const { setLoading, setMenuOpen } = appSlice.actions;
 
-export default appSlice.reducer; 
+export default appSlice.reducer;
