@@ -1,4 +1,4 @@
-import styled, { keyframes, css } from "styled-components";
+import styled, { css } from "styled-components";
 import { AboutTitle, AboutText } from "@components/About/AboutComponents";
 import { ScrollSection } from "@components/Landing/LandingComponents";
 import { Container } from "@components/Common/CommonComponents";
@@ -25,20 +25,17 @@ export const ProjectsText = styled(AboutText)`
   font-size: 1.4rem;
   line-height: 1.65;
   margin-top: 60px;
+  @media (max-width: 500px) {
+    font-size: 1.125rem;
+    margin-top: 24px;
+  }
 `;
 
 export const ProjectsScrollSection = styled(ScrollSection)`
   margin-top: 4rem;
 `;
 
-const imageLoaderSlideUp = keyframes`
-  from {
-    height: 100%;
-  }
-  to {
-    height: 0%;
-  }
-`;
+
 
 export const ProjectsListContainer = styled.div`
   width: 100%;
@@ -104,7 +101,7 @@ export const ProjectImageLoader = styled.div<{
     props.$isLoaded &&
     props.$shouldAnimate &&
     css`
-      animation: ${imageLoaderSlideUp} 0.3s ease-out 0.1s forwards;
+      animation: imageLoaderSlideUp 0.3s ease-out 0.1s forwards;
     `}
   transform-origin: bottom;
 `;

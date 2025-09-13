@@ -20,7 +20,7 @@ export const projects: ProjectData[] = [
       "PostgreSQL",
     ],
     liveUrl: "https://en-semble.netlify.app/",
-    githubUrl: "https://github.com/example/ecommerce",
+    githubUrl: "https://github.com//Yash-RajSingh/Ensemble",
   },
   {
     id: "2",
@@ -37,8 +37,8 @@ export const projects: ProjectData[] = [
       "Flask",
       "PostgreSQL",
     ],
-    liveUrl: "https://example.com",
-    githubUrl: "https://over-watch.netlify.app/",
+    liveUrl: "https://over-watch.netlify.app/",
+    githubUrl: "https://github.com/Yash-RajSingh/OverWatch-react",
   },
   {
     id: "3",
@@ -48,7 +48,7 @@ export const projects: ProjectData[] = [
     imageSrc: ACEWebsite,
     technologies: ["React.js", "Styled Components", "Gatsby.js", "GraphQL"],
     liveUrl: "https://vipsace.org/",
-    githubUrl: "https://github.com/example/weather-dashboard",
+    githubUrl: "https://github.com/ACE-VSIT/website",
   },
   {
     id: "4",
@@ -58,6 +58,6 @@ export const projects: ProjectData[] = [
     imageSrc: InternSahara,
     technologies: ["React.js", "Styled Components", "Framer motion"],
     liveUrl: "https://internsahara.netlify.app/",
-    githubUrl: "https://github.com/example/social-analytics",
+    githubUrl: "https://github.com/Yash-RajSingh/InternSahara",
   },
 ];

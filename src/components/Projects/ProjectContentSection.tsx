@@ -19,6 +19,9 @@ const Title = styled.h3`
   font-weight: 600;
   margin: 0;
   line-height: 1.2;
+  @media (max-width: 500px) {
+    font-size: 2rem;
+  }
 `;
 
 const Description = styled.p`
@@ -27,6 +30,10 @@ const Description = styled.p`
   line-height: 1.6;
   margin: 0;
   opacity: 0.9;
+  @media (max-width: 500px) {
+    font-size: 1rem;
+    text-align: left;
+  }
 `;
 
 const Technologies = styled.div`
@@ -38,6 +45,9 @@ const Technologies = styled.div`
   @media (max-width: 768px) {
     justify-content: center;
   }
+  @media (max-width: 500px) {
+    justify-content: flex-start;
+  }
 `;
 
 const TechnologyTag = styled.span`
@@ -47,6 +57,10 @@ const TechnologyTag = styled.span`
   border-radius: 20px;
   font-size: 0.9rem;
   font-weight: 600;
+
+  @media (max-width: 500px) {
+    font-size: 0.75rem;
+  }
 `;
 
 const Links = styled.div`
@@ -71,6 +85,11 @@ const Link = styled.a`
   &:hover {
     background: var(--subtext);
     color: var(--bg);
+  }
+
+  @media (max-width: 500px) {
+    font-size: 0.8rem;
+    padding: 0.3rem 0.6rem;
   }
 `;
 

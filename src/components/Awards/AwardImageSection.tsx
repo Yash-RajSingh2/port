@@ -1,14 +1,5 @@
 import React, { useState, useEffect } from "react";
-import styled, { keyframes, css } from "styled-components";
-
-const imageLoaderSlideUp = keyframes`
-  from {
-    height: 100%;
-  }
-  to {
-    height: 0%;
-  }
-`;
+import styled, { css } from "styled-components";
 
 const ImageSection = styled.div`
   width: 100%;
@@ -42,7 +33,7 @@ const ImageLoader = styled.div<{ $isLoaded: boolean; $shouldAnimate: boolean }>`
     props.$isLoaded &&
     props.$shouldAnimate &&
     css`
-      animation: ${imageLoaderSlideUp} 0.3s ease-out 0.15s forwards;
+      animation: imageLoaderSlideUp 0.3s ease-out 0.15s forwards;
     `}
   transform-origin: bottom;
 `;
@@ -94,6 +85,12 @@ const NameOverlay = styled.div`
   @media (max-width: 768px) {
     font-size: 1rem;
     padding: 0.6rem 1.5rem 0.6rem 1.2rem;
+  }
+  
+  @media (max-width: 500px) {
+    bottom: 0rem;
+    padding: 0.4rem 1rem 0.4rem 0.8rem;
+    font-size: 0.8rem;
   }
 `;
 

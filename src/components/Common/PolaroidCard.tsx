@@ -40,6 +40,10 @@ const PolaroidWrapper = styled(AnimatedCard)`
       transform: rotate(0deg) translateY(-5px) scale(1.02);
     }
   }
+
+  @media (max-width: 500px) {
+    width: 85%;
+  }
 `;
 
 const PolaroidImage = styled.img`

@@ -23,50 +23,18 @@ export const AboutLandingText = styled(AboutText)`
   font-size: 1.4rem;
   line-height: 1.65;
   margin-top: 60px;
+
+  @media (max-width: 500px) {
+    font-size: 1.2rem;
+    margin-top: 30px;
+  }
 `;
 
 export const AboutScrollSection = styled(ScrollSection)`
   margin-top: 4rem;
 `;
 
-// Skills Section Components
-export const SkillsContainer = styled(Container)`
-  min-height: 80vh;
-  max-height: 85vh;
-  padding: 4rem 2rem;
-  position: relative;
-  overflow: hidden;
-  margin-top: 10rem;
-`;
 
-export const SkillsTitle = styled(AboutLandingTitle)`
-  text-align: left !important;
-  margin-bottom: 4rem;
-  align-self: flex-start;
-
-  &::after {
-    left: 0 !important;
-    transform: translateX(0) !important;
-  }
-`;
-
-export const AdventuresTitle = styled(AboutLandingTitle)<{
-  isVisible?: boolean;
-  delay?: number;
-}>`
-  text-align: left !important;
-  align-self: flex-start;
-  opacity: ${(props) => (props.isVisible ? 1 : 0)};
-  transform: translateY(${(props) => (props.isVisible ? "0" : "30px")});
-  transition:
-    opacity 0.6s ease ${(props) => props.delay || 0}s,
-    transform 0.6s ease ${(props) => props.delay || 0}s;
-
-  &::after {
-    left: 0 !important;
-    transform: translateX(0) !important;
-  }
-`;
 
 // Adventures Cards Components
 export const AdventuresGrid = styled.div<{ isVisible?: boolean }>`
@@ -88,45 +56,7 @@ export const AdventuresGrid = styled.div<{ isVisible?: boolean }>`
   }
 `;
 
-export const PolaroidCard = styled.div<{ isVisible?: boolean; delay?: number }>`
-  background: white;
-  padding: 15px 15px 50px 15px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
-  transform: rotate(${Math.random() * 6 - 3}deg);
-  transition: all 0.3s ease;
-  cursor: pointer;
-  width: 40%;
-  flex-shrink: 0;
-  opacity: ${(props) => (props.isVisible ? 1 : 0)};
-  transform: ${(props) =>
-    props.isVisible
-      ? `rotate(${Math.random() * 6 - 3}deg) translateY(0)`
-      : `rotate(${Math.random() * 6 - 3}deg) translateY(30px)`};
-  transition: all 0.6s ease ${(props) => props.delay || 0}s;
 
-  &:hover {
-    transform: rotate(0deg) translateY(-10px) scale(1.05);
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.25);
-    z-index: 10;
-  }
-
-  &:nth-child(even) {
-    transform: rotate(${Math.random() * 6 - 3}deg);
-  }
-
-  &:nth-child(odd) {
-    transform: rotate(${Math.random() * 6 - 3}deg);
-  }
-
-  @media (max-width: 768px) {
-    padding: 12px 12px 40px 12px;
-    width: 200px;
-
-    &:hover {
-      transform: rotate(0deg) translateY(-5px) scale(1.02);
-    }
-  }
-`;
 
 export const PolaroidImage = styled.img`
   width: 100%;
@@ -142,23 +72,42 @@ export const SkillsCloudContainer = styled.div`
   height: 60vh;
   max-width: 1200px;
   margin: 0 auto;
+  
+  /* Use flexbox for mobile to prevent overlapping */
+  @media (max-width: 768px) {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    gap: 1rem;
+    padding: 1rem;
+    min-height: 50vh;
+    height: auto;
+  }
+  
+  @media (max-width: 500px) {
+    gap: 0.8rem;
+    padding: 0.5rem;
+  }
 `;
 
 export const SkillCard = styled.div<{
-  top: string;
-  left: string;
+  top?: string;
+  left?: string;
   animationDelay: string;
   isVisible?: boolean;
 }>`
+  /* Absolute positioning for desktop cloud effect */
   position: absolute;
-  top: ${(props) => props.top};
-  left: ${(props) => props.left};
+  top: ${(props) => props.top || "50%"};
+  left: ${(props) => props.left || "50%"};
   background: transparent;
   color: var(--text);
   padding: 0.8rem 1.5rem;
   font-weight: 600;
   font-size: 1rem;
-  cursor: pointer;
+  user-select: none;
   transition: all 0.3s ease;
   transform: translateY(${(props) => (props.isVisible ? "0" : "30px")});
   opacity: ${(props) => (props.isVisible ? 1 : 0)};
@@ -181,9 +130,18 @@ export const SkillCard = styled.div<{
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
   }
 
-  /* Responsive adjustments */
+  /* Switch to relative positioning for mobile flexbox */
   @media (max-width: 768px) {
+    position: relative;
+    top: auto;
+    left: auto;
     font-size: 0.9rem;
     padding: 0.7rem 1.2rem;
+    flex-shrink: 0;
+  }
+  
+  @media (max-width: 500px) {
+    font-size: 0.85rem;
+    padding: 0.6rem 1rem;
   }
 `;

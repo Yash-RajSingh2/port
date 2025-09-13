@@ -10,6 +10,10 @@ export const ContactContainer = styled.section`
   padding: 4rem 2rem;
   margin: 16rem auto 2rem;
   position: relative;
+  @media (max-width: 500px) {
+    width: 90%;
+    padding: 2rem 0.5rem;
+  }
 `;
 
 const borderGrow = keyframes`
@@ -34,13 +38,17 @@ export const ContactTitle = styled.h2`
     content: "";
     position: absolute;
     bottom: -10px;
-    left: 50%;
+    left: 0;
     transform: translateX(100%);
     width: 60%;
     height: 3px;
     background: var(--subtext);
     opacity: 0;
     transform-origin: center;
+
+    @media (max-width: 500px) {
+      left: 0;
+    }
   }
 `;
 
@@ -76,6 +84,11 @@ export const ContactButton = styled.button`
     outline: none;
     box-shadow: 0 0 0 2px var(--fill);
   }
+  @media (max-width: 500px) {
+    font-size: 0.8rem;
+    padding: 10px 20px;
+    margin-top: 5rem;
+  }
 `;
 
 // Animated versions for intersection observer
@@ -109,6 +122,10 @@ export const AnimatedContactTitle = styled(ContactTitle)<{
         : css`
             animation: none;
           `}
+  }
+
+  @media (max-width: 500px) {
+    font-size: 1.8rem;
   }
 `;
 

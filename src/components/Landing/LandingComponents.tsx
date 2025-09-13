@@ -48,16 +48,7 @@ export const TextSection = styled.div`
     }
   }
 
-  @keyframes fadeSlideUp {
-    0% {
-      opacity: 0;
-      transform: translateY(30px);
-    }
-    100% {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
+
 `;
 
 export const ImageSection = styled.div`

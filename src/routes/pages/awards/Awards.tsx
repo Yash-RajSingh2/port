@@ -1,4 +1,5 @@
 import React from "react";
+import styled from "styled-components";
 import type { AwardsProps } from "./Awards.interfaces";
 import Layout from "@components/Layout/Layout";
 import AwardsLanding from "@components/AwardsLanding/AwardsLanding";
@@ -10,6 +11,13 @@ import {
   AnimatedContentWrapper,
 } from "@/components/Common/CommonComponents";
 import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
+
+const ResponsiveContainer = styled(Container)`
+  @media (max-width: 500px) {
+    padding: 0 !important;
+    margin-top: 15rem !important;
+  }
+`;
 
 const Awards: React.FC<AwardsProps> = () => {
   const { elementRef: listRef, isIntersecting: listVisible } =
@@ -27,7 +35,7 @@ const Awards: React.FC<AwardsProps> = () => {
   return (
     <Layout>
       <AwardsLanding />
-      <Container
+      <ResponsiveContainer
         style={{ padding: "0 2rem 0" }}
         topMargin="25rem"
         ref={listRef}
@@ -48,7 +56,7 @@ const Awards: React.FC<AwardsProps> = () => {
             More achievements brewing in the pipeline
           </AnimatedMoreComingMessage>
         </AnimatedContentWrapper>
-      </Container>
+      </ResponsiveContainer>
     </Layout>
   );
 };

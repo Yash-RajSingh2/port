@@ -33,6 +33,9 @@ const CardContainer = styled.div<{
     width: 90%;
     align-self: center;
   }
+  @media (max-width: 500px) {
+    width: 95%;
+  }
 `;
 
 const Description = styled.p`
@@ -48,6 +51,11 @@ const Description = styled.p`
   @media (max-width: 768px) {
     padding: 2.5rem 1.2rem 1.2rem;
     font-size: 1rem;
+  }
+  @media (max-width: 500px) {
+    padding: 2rem 1rem 0.5rem;
+    font-size: 0.8rem;
+    margin-top: 0.5rem;
   }
 `;
 

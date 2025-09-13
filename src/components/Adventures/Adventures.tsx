@@ -26,7 +26,11 @@ const Adventures: React.FC = () => {
       ref={elementRef}
     >
       <ContentWrapper flexDirection="column" alignItems="flex-start" gap="2rem">
-        <SectionTitle isVisible={isIntersecting} alignment="left">
+        <SectionTitle 
+          isVisible={isIntersecting} 
+          alignment="left"
+          customFontSize500="1.5rem"
+        >
           Peek into my adventures<span>.</span>
         </SectionTitle>
         <CardsContainer isVisible={isIntersecting} layout="flex">

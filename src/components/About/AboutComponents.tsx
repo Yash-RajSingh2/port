@@ -22,16 +22,7 @@ export const AboutTitle = styled.h2`
     transform-origin: left;
   }
 
-  @keyframes fadeSlideUp {
-    0% {
-      opacity: 0;
-      transform: translateY(30px);
-    }
-    100% {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
+
 
   @keyframes borderGrow {
     0% {

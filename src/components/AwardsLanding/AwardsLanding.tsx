@@ -39,7 +39,11 @@ const AwardsLanding: React.FC = () => {
           </AwardsText>
         </AnimatedContentWrapper>
       </Container>
-      <AnimatedScrollText text="DISCOVER" letterDelay={0.1} topMargin="-8rem" />
+      <AnimatedScrollText
+        text="DISCOVER"
+        letterDelay={0.1}
+        topMargin="-8rem"
+      />
     </>
   );
 };

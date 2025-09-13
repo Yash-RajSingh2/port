@@ -6,6 +6,7 @@ export const SectionTitle = styled(AboutTitle)<{
   isVisible?: boolean;
   delay?: number;
   alignment?: "left" | "center";
+  customFontSize500?: string;
 }>`
   text-align: ${(props) => props.alignment || "left"} !important;
   align-self: ${(props) =>
@@ -19,7 +20,6 @@ export const SectionTitle = styled(AboutTitle)<{
   span {
     color: var(--subtext);
   }
-
   &::after {
     bottom: calc(-10px - 2rem);
     left: ${(props) => (props.alignment === "center" ? "50%" : "0")} !important;
@@ -38,7 +38,7 @@ export const SectionTitle = styled(AboutTitle)<{
     font-size: 2.625rem;
   }
   @media (max-width: 500px) {
-    font-size: 1.8rem;
+    font-size: ${(props) => props.customFontSize500 || "1.8rem"};
   }
 `;
 
@@ -69,6 +69,9 @@ export const CardsContainer = styled.div<{
   @media (max-width: 768px) {
     gap: 1.5rem;
     justify-content: center;
+  }
+  @media (max-width: 500px) {
+    gap: 4rem;
   }
 `;
 

@@ -24,6 +24,10 @@ const CardContainer = styled.div<{
     flex-direction: column;
     gap: 2rem;
   }
+  @media (max-width: 500px) {
+    max-width: 90%;
+    margin: 0 auto;
+  }
 `;
 
 interface Project {

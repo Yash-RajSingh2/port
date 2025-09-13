@@ -1,14 +1,5 @@
 import React, { useState, useEffect } from "react";
-import styled, { keyframes, css } from "styled-components";
-
-const imageLoaderSlideUp = keyframes`
-  from {
-    height: 100%;
-  }
-  to {
-    height: 0%;
-  }
-`;
+import styled, { css } from "styled-components";
 
 const ImageSection = styled.div`
   width: 40%;
@@ -48,7 +39,7 @@ const ImageLoader = styled.div<{ $isLoaded: boolean; $shouldAnimate: boolean }>`
     props.$isLoaded &&
     props.$shouldAnimate &&
     css`
-      animation: ${imageLoaderSlideUp} 0.3s ease-out 0.1s forwards;
+      animation: imageLoaderSlideUp 0.3s ease-out 0.1s forwards;
     `}
   transform-origin: bottom;
 `;

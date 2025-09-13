@@ -65,6 +65,27 @@ export const GlobalStyles = createGlobalStyle<{ $lockScroll?: boolean }>`
     bottom: 0;
   }
 
+  /* Global animations */
+  @keyframes fadeSlideUp {
+    0% {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes imageLoaderSlideUp {
+    from {
+      height: 100%;
+    }
+    to {
+      height: 0%;
+    }
+  }
+
   /* Scroll locking driven by prop */
   html, body {
     overflow: ${({ $lockScroll }) => ($lockScroll ? "hidden" : "auto")};

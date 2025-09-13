@@ -1,4 +1,5 @@
 import React from "react";
+import styled from "styled-components";
 import {
   TextSection,
   ImageSection,
@@ -6,14 +7,19 @@ import {
   DiagonalLines,
 } from "./LandingComponents";
 import meImage from "@assets/me.png";
-import "./ProfileSection.css";
+
+const ResponsiveBreak = styled.br`
+  @media (max-width: 1000px) {
+    display: none;
+  }
+`;
 
 export const ProfileSection: React.FC = () => {
   return (
     <>
       <TextSection>
         <p>
-          Hi, my <br className="responsive-break" />
+          Hi, my <ResponsiveBreak />
           name is <b>Yash </b>.
         </p>
         <span>
