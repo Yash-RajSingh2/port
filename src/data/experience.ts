@@ -17,9 +17,11 @@ export const experiences: ExperienceData[] = [
     period: "Aug 2022 – present",
     imageSrc: impactAnalyticsLogo,
     description: [
-      "Played an integral role in a complete UI revamp of the core product, improving usability and performance across web platforms.",
-      "Led various UI/UX enhancements and bug fixes, improving user experience and interface efficiency across the application.",
-      "Engineered and implemented key components, including a drag-and-drop pivot panel for tables, significantly enhancing user interaction and data manipulation capabilities.",
+      'Led a complete UI revamp of the company’s core microfrontend application (serving 40+ enterprise clients) improving usability, performance, and scalability across platforms.',
+      'Engineered and shipped key features, including a drag-and-drop pivot panel for tables, enabling advanced data manipulation and significantly enhancing analyst productivity.',
+      'Drove UI/UX enhancements and defect resolutions, resulting in smoother workflows and contributing to the successful onboarding of 8 new clients post-migration.',
+      'Collaborated cross-functionally with product managers, designers, and backend developers to ensure seamless integration, consistent design standards, and high-performance delivery.'
+
     ],
   },
   {
@@ -28,9 +30,8 @@ export const experiences: ExperienceData[] = [
     period: "Nov 2022 – 07/2023 (originally 02/2023)",
     imageSrc: impactAnalyticsLogo,
     description: [
-      "Engineered modular, reusable React components using MUI and ag-Grid to expand functionality and improve maintainability.",
-      "Translated UI/UX designs into responsive, accessible interfaces that work across devices and browsers.",
-      "Improved performance for complex data tables through virtualization, memoization, and careful rendering strategies to reduce UI lag on large datasets.",
+      'Engineered reusable UI components with MUI, Highcharts and ag-Grid, enabling consistent design and reducing feature development time by ~20%.',
+      'Implemented responsive, pixel-perfect UI designs that streamlined client workflows and contributed to a smoother onboarding of 7+ clients.'
     ],
   },
   {
@@ -39,15 +40,14 @@ export const experiences: ExperienceData[] = [
     period: "Aug 2022 – Oct 2022",
     imageSrc: switchLabsLogo,
     description: [
-      "Refactored and structured existing codebase to enhance maintainability and scalability.",
-      "Built an analytics system to monitor website traffic, improving visibility into user behavior.",
-      "Redesigned and rebuilt the company website, modernizing the overall user experience.",
+      'Developed an analytics system to track user activity(views, time spent), enabling personalized discounts and boosting engagement by ~15%.',
+      'Rebuilt company website from HTML/CSS/JS to React, delivering a UI revamp with improved responsiveness.'
     ],
   },
   {
     company: "ACE- Association for Computer Enthusiasts",
     jobTitle: "Web Dev Mentor",
-    period: "December 15th 2022 – Present",
+    period: "December 2022 – July 2023",
     imageSrc: aceLogo,
     description: [
       "Mentored team members in frontend fundamentals, Git workflows, and responsive design principles.",
@@ -57,7 +57,7 @@ export const experiences: ExperienceData[] = [
   {
     company: "ACE- Assn. for Computer Enthusiasts",
     jobTitle: "Web development team core member",
-    period: "February 15th 2021 – December 14th 2022",
+    period: "February 2021 – December 2022",
     imageSrc: aceLogo,
     description: [
       "Built the official live website for the Association of Computer Enthusiasts (ACE) as part of a 4-member team.",

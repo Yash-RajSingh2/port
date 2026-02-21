@@ -3,10 +3,24 @@ import Ensemble from "@assets/ensemble.webp";
 import OverWatch from "@assets/overwatch.webp";
 import ACEWebsite from "@assets/ace-website.webp";
 import InternSahara from "@assets/internsahara.webp";
-
+import CoonConvert from "@assets/coonconvert.webp";
 export const projects: ProjectData[] = [
   {
     id: "1",
+    title: "CoonConvert",
+    description:
+      "A web platform designed for seamless collaboration and group projects. It enables teams to organize tasks, manage progress, and work together efficiently, providing a structured space for project management and tracking.",
+    imageSrc: CoonConvert,
+    technologies: [
+      "React.js",
+      "Typescript",
+      "Styled Components",
+    ],
+    liveUrl: "https://coonconvert.netlify.app",
+    // githubUrl: "https://github.com//Yash-RajSingh/CoonConvert",
+  },
+  {
+    id: "2",
     title: "Ensemble",
     description:
       "A web platform designed for seamless collaboration and group projects. It enables teams to organize tasks, manage progress, and work together efficiently, providing a structured space for project management and tracking.",
@@ -23,7 +37,7 @@ export const projects: ProjectData[] = [
     githubUrl: "https://github.com//Yash-RajSingh/Ensemble",
   },
   {
-    id: "2",
+    id: "3",
     title: "OverWatch",
     description:
       "A map-based website that highlights dangerous locations based on real user experiences. It allows users to mark danger zones on the map and share their personal stories, creating a community-driven resource to help others stay alert and safe.",
@@ -41,7 +55,7 @@ export const projects: ProjectData[] = [
     githubUrl: "https://github.com/Yash-RajSingh/OverWatch-react",
   },
   {
-    id: "3",
+    id: "4",
     title: "ACE Website",
     description:
       "The official website for the technical society of V.I.P.S., built as a group project. It served as the live platform showcasing the society’s identity, activities, projects, members, and history, providing a complete hub of information for students and visitors.",
@@ -51,7 +65,7 @@ export const projects: ProjectData[] = [
     githubUrl: "https://github.com/ACE-VSIT/website",
   },
   {
-    id: "4",
+    id: "5",
     title: "InternSahara",
     description:
       "A website that aggregates internship openings by scraping data from Internshala. It features filters for different streams, allowing users to easily browse and find opportunities relevant to their field.",

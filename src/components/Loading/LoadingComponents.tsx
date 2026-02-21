@@ -122,21 +122,21 @@ export const MenuItem = styled.div`
   gap: 1rem;
   align-items: end;
   opacity: 0;
-  animation: ${menuItemSlideDown} 0.4s ease-out forwards;
+  animation: ${menuItemSlideDown} 0.23s ease-out forwards;
 
   &:nth-child(2) {
-    animation-delay: 1.2s;
+    animation-delay: 1s;
   }
 
   &:nth-child(3) {
-    animation-delay: 1.35s;
+    animation-delay: 1.15s;
   }
 
   &:nth-child(4) {
-    animation-delay: 1.5s;
+    animation-delay: 1.3s;
   }
   &:nth-child(5) {
-    animation-delay: 1.65s;
+    animation-delay: 1.5s;
   }
   @media (max-width: 500px) {
     margin-bottom: 1.25rem;
@@ -250,23 +250,23 @@ export const SocialIcon = styled.img`
   text-decoration: none;
   transition: all 0.2s ease;
   opacity: 0;
-  animation: ${socialIconsSlideIn} 0.4s ease-out forwards;
+  animation: ${socialIconsSlideIn} 0.2s ease-out forwards;
   cursor: pointer;
   object-fit: contain;
   &:nth-child(1) {
-    animation-delay: 0.8s;
+    animation-delay: 0.6s;
   }
 
   &:nth-child(2) {
-    animation-delay: 0.9s;
+    animation-delay: 0.7s;
   }
 
   &:nth-child(3) {
-    animation-delay: 1s;
+    animation-delay: 0.8s;
   }
 
   &:nth-child(4) {
-    animation-delay: 1.1s;
+    animation-delay: 0.9s;
   }
 
   @media (max-width: 500px) {

@@ -27,7 +27,7 @@ export const ProfileSection: React.FC = () => {
         </span>
       </TextSection>
       <ImageSection>
-        <ProfileImage src={meImage} alt="Profile" />
+        <ProfileImage src={meImage} alt="Profile" loading="eager" />
         <DiagonalLines />
       </ImageSection>
     </>

@@ -1,0 +1,6 @@
+/* Hide line break for screens under 750px */
+@media (max-width: 1000px) {
+  .responsive-break {
+    display: none;
+  }
+} 
